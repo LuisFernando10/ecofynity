@@ -1,0 +1,67 @@
+
+    {% block sliderbar %}
+
+        <div class="sidebar" data-color="purple" data-background-color="white" data-image="{{ general.full_images_url }}HotelLitoral/reception.jpg">
+
+            {# Logo #}
+            <div class="logo">
+                <a href="{{general.full_web_url}}" class="simple-text logo-normal">
+                    Hotel Litoral
+                </a>
+            </div>
+
+            {# ** Opciones del menú ** #}
+            <div class="sidebar-wrapper">
+
+                {# Menu #}
+                <ul class="nav">
+
+                    {# Dashboard #}
+                    <li class="nav-item {{ (general.class_url == 'dashboard') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{general.full_web_url}}dashboard/">
+                            <i class="material-icons">dashboard</i>
+                            <p>Dashboard</p>
+                        </a>
+                    </li>
+
+                    {# Rooms #}
+                    <li class="nav-item {{ (general.class_url == 'quartos') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{general.full_web_url}}quartos/">
+                            <i class="material-icons">meeting_room</i>
+                            <p>Quartos</p>
+                        </a>
+                    </li>
+
+                    {# Offerings #}
+                    <li class="nav-item {{ (general.class_url == 'oferecimentos') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{general.full_web_url}}oferecimentos/">
+                            <i class="material-icons">room_service</i>
+                            <p>Oferecimentos</p>
+                        </a>
+                    </li>
+
+                    {# Configurations #}
+                    <li class="nav-item {{ (general.class_url == 'configuracoes') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{general.full_web_url}}configuracoes/">
+                            <i class="material-icons">settings</i>
+                            <p>Configurações</p>
+                        </a>
+                    </li>
+
+                    {# Cerrar Sesion #}
+                    <hr>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{general.full_web_url}}salir/">
+                            <i class="material-icons">power_settings_new</i>
+                            <p>Sair</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            {# Imagen #}
+            <div class="sidebar-background" style="background-image: url({{ general.full_images_url }}HotelLitoral/reception.jpg) ">
+            </div>
+        </div>
+
+    {% endblock %}

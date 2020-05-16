@@ -1,0 +1,16 @@
+
+    /*Clase para ocultar os conteudos*/
+    .css-element-hide{
+        display: none;
+    }
+
+    /*Clase para alinhar o '<input>' con o '<select>'*/
+    .css-input-aligned-with-select{
+        padding-top: 32px;
+        padding-bottom: 21px;
+    }
+
+    /* Classes para os cursores */
+    .css-cursor-not-allowed{
+        cursor: not-allowed!important;
+    }
