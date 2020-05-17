@@ -3,3 +3,78 @@
     .css-nav-menu-logo{
         width: 10%;
     }
+
+    /********* MEDIAQUERIES *********/
+
+    /*** Extra Pequeños (<576px) ***/
+    @media (min-width: 320px) and (max-width: 575px) {
+
+        .css-nav-menu-general-container{
+            padding: 0!important;
+        }
+        .css-nav-menu-logo{
+            width: 14%;
+            margin: 2px 0;
+        }
+        .css-nav-menu-actions{
+            bottom: 0!important;
+            right: 50px!important;
+        }
+        .css-nav-menu-responsive-menu{
+            top: -14px!important;
+        }
+    }
+
+    /* (Mediaqueries) especiales para controlar el menú responsive*/
+    @media (min-width: 450px) and (max-width: 500px) {
+
+        .css-nav-menu-responsive-menu{
+            top: -20px!important;
+        }
+    }
+    @media (min-width: 501px) and (max-width: 575px) {
+
+        .css-nav-menu-responsive-menu{
+            top: -22px!important;
+        }
+    }
+
+
+    /*** Pequeños (>576px y <768px) ***/
+    @media (min-width: 576px) and (max-width: 767px){
+        .css-nav-menu-general-container{
+            padding: 0!important;
+        }
+        .css-nav-menu-logo{
+            margin: 2px 0;
+        }
+        .css-nav-menu-responsive-menu{
+            top: -20px!important;
+        }
+    }
+
+
+    /*** Medianos (≥768px y <992px) ***/
+    @media (min-width: 768px) and (max-width: 991px){
+        .css-nav-menu-general-container{
+            padding: 0!important;
+        }
+        .css-nav-menu-logo{
+            margin: 2px 0;
+        }
+        .css-nav-menu-responsive-menu{
+            top: -30px!important;
+        }
+    }
+
+
+    /*** Largos (≥992px y <1200px) ***/
+    @media (min-width: 992px) and (max-width: 1199px){
+
+    }
+
+
+    /*** Extra Largos (≥1200px) ***/
+    @media (min-width: 1200px){
+
+    }
