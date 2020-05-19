@@ -19,23 +19,19 @@
                 {# Bootstrap V-4.1.2 (CSS) #}
                 <link rel="stylesheet" type="text/css" href="{{ general.full_assets_url }}framework/bootstrap-4.1.2/bootstrap.min.css">
 
-                {# Font-awesome #}
-                <link rel="stylesheet" type="text/css" href="{{ general.full_assets_url }}template/css/fontawesome-all.min.css">
+                {# Google-Font #}
+                <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,700" rel="stylesheet">
+
+                {# Iconos #}
+                <link rel="stylesheet" href="{{ general.full_assets_url }}template/fonts/style.css">
 
                 {# CSS Main Views (Template) #}
-                <link rel="stylesheet" type="text/css" href="{{ general.full_assets_url }}template/css/flaticon.css">
-                <link rel="stylesheet" type="text/css" href="{{ general.full_assets_url }}template/css/slicknav.css">
-                <link rel="stylesheet" type="text/css" href="{{ general.full_assets_url }}template/css/animate.min.css">
+                <link rel="stylesheet" href="{{ general.full_assets_url }}template/css/animate.css">
+                <link rel="stylesheet" href="{{ general.full_assets_url }}template/css/flexslider.css">
                 <link rel="stylesheet" type="text/css" href="{{ general.full_assets_url }}template/css/magnific-popup.css">
-                <link rel="stylesheet" type="text/css" href="{{ general.full_assets_url }}template/css/themify-icons.css">
-                <link rel="stylesheet" type="text/css" href="{{ general.full_assets_url }}template/css/slick.css">
-                <link rel="stylesheet" type="text/css" href="{{ general.full_assets_url }}template/css/nice-select.css">
 
                 {# CSS Main (Template) #}
                 <link rel="stylesheet" type="text/css" href="{{ general.full_assets_url }}template/css/style.css">
-
-                {# Owl.carousel #}
-                <link rel="stylesheet" type="text/css" href="{{ general.full_assets_url }}template/css/owl.carousel.min.css">
 
                 {# Main (CSS) #}
                 <link rel="stylesheet" type="text/css" href="{{ general.full_assets_url }}css/main.css">
@@ -43,7 +39,7 @@
             </head>
         {% endblock %}
 
-        <body>
+        <body data-spy="scroll" data-target="#pb-navbar" data-offset="200">
 
             {# Icono de 'Pre-carga del Contenido' #}
             <div id="preloader-active">
@@ -60,16 +56,6 @@
             {% block content %}
                 {#Código HTML para cada vista#}
             {% endblock %}
-
-            {# Caja de búsqueda #}
-            <div class="search-model-box">
-                <div class="h-100 d-flex align-items-center justify-content-center">
-                    <div class="search-close-btn">+</div>
-                    <form class="search-model-form">
-                        <input type="text" id="search-input" placeholder="Searching key.....">
-                    </form>
-                </div>
-            </div>
 
         </body>
 
