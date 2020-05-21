@@ -1,7 +1,10 @@
 
     /*Estilos para el Nav-Menú*/
+    .css-nav-menu-link-logo{
+        border: none!important;
+    }
     .css-nav-menu-logo{
-        width: 10%;
+        width: 50px;
     }
 
     /********* MEDIAQUERIES *********/

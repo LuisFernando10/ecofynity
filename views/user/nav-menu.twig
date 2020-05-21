@@ -2,20 +2,27 @@
     <nav class="navbar navbar-expand-lg site-navbar navbar-light bg-light" id="pb-navbar">
 
         <div class="container">
+
+            {# Menú (RESPONSIVE)#}
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <a class="navbar-brand" href="index.html">Alias</a>
+            {# Logo #}
+            <a class="navbar-brand css-nav-menu-link-logo" href="{{genral.full_web_url}}">
+                <img src="{{ general.full_images_url }}logo/logo_letters.png" alt="Logo" class="css-nav-menu-logo">
+            </a>
+
+            {# Menú (DESKTOP) #}
             <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample09">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="#section-home">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#section-about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#section-services">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#section-portfolio">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#section-home">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#section-about">¿Quiénes somos?</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#section-services">Beneficios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#section-portfolio">Productos</a></li>
                     <li class="nav-item"><a class="nav-link" href="#section-resume">Resume</a></li>
                     <li class="nav-item"><a class="nav-link" href="#section-blog">Blog</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#section-contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#section-contact">Contacto</a></li>
                 </ul>
             </div>
         </div>

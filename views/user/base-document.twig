@@ -13,7 +13,6 @@
                 <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
                 <meta http-equiv="X-UA-Compatible" content="IE=edge">
                 <meta name="description" content="Ecofynity">
-                <link rel="manifest" href="site.webmanifest">
                 <meta name="viewport" content="width=device-width, initial-scale=1">
 
                 {# Bootstrap V-4.1.2 (CSS) #}
@@ -42,16 +41,16 @@
         <body data-spy="scroll" data-target="#pb-navbar" data-offset="200">
 
             {# Icono de 'Pre-carga del Contenido' #}
-            <div id="preloader-active">
-                <div class="preloader d-flex align-items-center justify-content-center">
-                    <div class="preloader-inner position-relative">
-                        <div class="preloader-circle"></div>
-                        <div class="preloader-img pere-text">
-                            <img src="{{ general.full_images_url }}logo/logo_alone.png" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
+            {#<div id="preloader-active">#}
+            {#    <div class="preloader d-flex align-items-center justify-content-center">#}
+            {#        <div class="preloader-inner position-relative">#}
+            {#            <div class="preloader-circle"></div>#}
+            {#            <div class="preloader-img pere-text">#}
+            {#                <img src="{{ general.full_images_url }}logo/logo_alone.png" alt="">#}
+            {#            </div>#}
+            {#        </div>#}
+            {#    </div>#}
+            {#</div>#}
 
             {% block content %}
                 {#Código HTML para cada vista#}

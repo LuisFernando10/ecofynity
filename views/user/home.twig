@@ -1,99 +1,98 @@
 
-{% extends "base-document.twig" %}
-        {% block content %}
+    {% extends "base-document.twig" %}
+    {% block content %}
 
-            {# Header - Nav (Menú) #}
-            {% include 'nav-menu.twig' %}
+        {# Header - Nav (Menú) #}
+        {% include 'nav-menu.twig' %}
 
-            <section class="site-hero" style="background-image: url(images/image_1.jpg);" id="section-home" data-stellar-background-ratio="0.5">
-                <div class="container">
-                    <div class="row intro-text align-items-center justify-content-center">
-                        <div class="col-md-10 text-center">
-                            <h1 class="site-heading site-animate">Howdy, I'm <strong>Jean Smith</strong></h1>
-                            <p class="lead site-subheading mb-4 site-animate">A Product Designer working at Facebook. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-                            <p><a href="#section-about" class="smoothscroll btn btn-primary px-4 py-3">More On Me</a></p>
-                        </div>
+        <section class="site-hero" style="background-image: url({{ general.full_images_url }}image_1.jpg);" id="section-home" data-stellar-background-ratio="0.5">
+            <div class="container">
+                <div class="row intro-text align-items-center justify-content-center">
+                    <div class="col-md-10 text-center">
+                        <h1 class="site-heading site-animate">Howdy, I'm <strong>Jean Smith</strong></h1>
+                        <p class="lead site-subheading mb-4 site-animate">A Product Designer working at Facebook. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+                        <p><a href="#section-about" class="smoothscroll btn btn-primary px-4 py-3">More On Me</a></p>
                     </div>
                 </div>
-            </section> <!-- section -->
+            </div>
+        </section>
 
-            <section class="site-section" id="section-about">
-                <div class="container">
-                    <div class="row mb-5 align-items-center">
-                        <div class="col-lg-7 pr-lg-5 mb-5 mb-lg-0">
-                            <img src="images/image_1_long.jpg" alt="Image placeholder" class="img-fluid">
+        <section class="site-section" id="section-about">
+            <div class="container">
+                <div class="row mb-5 align-items-center">
+                    <div class="col-lg-7 pr-lg-5 mb-5 mb-lg-0">
+                        <img src="{{ general.full_images_url }}image_1_long.jpg" alt="Image placeholder" class="img-fluid">
+                    </div>
+                    <div class="col-lg-5 pl-lg-5">
+                        <div class="section-heading">
+                            <h2>About <strong>Me</strong></h2>
                         </div>
-                        <div class="col-lg-5 pl-lg-5">
-                            <div class="section-heading">
-                                <h2>About <strong>Me</strong></h2>
-                            </div>
-                            <p class="lead">Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-                            <p class="mb-5  ">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+                        <p class="lead">Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+                        <p class="mb-5  ">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+                        <p>
+                            <a href="#section-contact" class="btn btn-primary px-4 py-2 btn-sm smoothscroll">Hire Me</a>
+                            <a href="#" class="btn btn-secondary px-4 py-2 btn-sm">Download CV</a>
+                        </p>
+                    </div>
+                </div>
 
-                            <p>
-                                <a href="#section-contact" class="btn btn-primary px-4 py-2 btn-sm smoothscroll">Hire Me</a>
-                                <a href="#" class="btn btn-secondary px-4 py-2 btn-sm">Download CV</a>
-                            </p>
+                <div class="row pt-5">
+                    <div class="col-md-3 mb-3">
+                        <div class="section-heading">
+                            <h2>My <strong>Skills</strong></h2>
                         </div>
                     </div>
-
-                    <div class="row pt-5">
-                        <div class="col-md-3 mb-3">
-                            <div class="section-heading">
-                                <h2>My <strong>Skills</strong></h2>
+                    <div class="col-md-9">
+                        <div class="skill">
+                            <h3>Design</h3>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
+                                    <span>85%</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-md-9">
-                            <div class="skill">
-                                <h3>Design</h3>
-                                <div class="progress">
-                                    <div class="progress-bar" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
-                                        <span>85%</span>
-                                    </div>
+
+                        <div class="skill">
+                            <h3>HTML5</h3>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 98%" aria-valuenow="98" aria-valuemin="0" aria-valuemax="100">
+                                    <span>98%</span>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="skill">
-                                <h3>HTML5</h3>
-                                <div class="progress">
-                                    <div class="progress-bar" role="progressbar" style="width: 98%" aria-valuenow="98" aria-valuemin="0" aria-valuemax="100">
-                                        <span>98%</span>
-                                    </div>
+                        <div class="skill">
+                            <h3>CSS3</h3>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 97%" aria-valuenow="97" aria-valuemin="0" aria-valuemax="100">
+                                    <span>97%</span>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="skill">
-                                <h3>CSS3</h3>
-                                <div class="progress">
-                                    <div class="progress-bar" role="progressbar" style="width: 97%" aria-valuenow="97" aria-valuemin="0" aria-valuemax="100">
-                                        <span>97%</span>
-                                    </div>
+                        <div class="skill">
+                            <h3>WordPress</h3>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 88%" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100">
+                                    <span>88%</span>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="skill">
-                                <h3>WordPress</h3>
-                                <div class="progress">
-                                    <div class="progress-bar" role="progressbar" style="width: 88%" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100">
-                                        <span>88%</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="skill">
-                                <h3>Bootstrap</h3>
-                                <div class="progress">
-                                    <div class="progress-bar" role="progressbar" style="width: 92%" aria-valuenow="92" aria-valuemin="0" aria-valuemax="100">
-                                        <span>92%</span>
-                                    </div>
+                        <div class="skill">
+                            <h3>Bootstrap</h3>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 92%" aria-valuenow="92" aria-valuemin="0" aria-valuemax="100">
+                                    <span>92%</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
+    </section>
 
-            <section class="site-section bg-light">
+        <section class="site-section bg-light">
                 <div class="container">
                     <div class="row mb-5">
                         <div class="col-md-12">
@@ -107,63 +106,56 @@
 
                             <div class="block-47 d-flex mb-5">
                                 <div class="block-47-image">
-                                    <img src="images/person_1.jpg" alt="Image placeholder" class="img-fluid">
+                                    <img src="{{ general.full_images_url }}person_1.jpg" alt="Image placeholder" class="img-fluid">
                                 </div>
                                 <blockquote class="block-47-quote">
                                     <p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.&rdquo;</p>
                                     <cite class="block-47-quote-author">&mdash; Ethan McCown, CEO <a href="#">XYZ Inc.</a></cite>
                                 </blockquote>
                             </div>
-
                         </div>
-                        <div class="col-md-6">
 
+                        <div class="col-md-6">
                             <div class="block-47 d-flex mb-5">
                                 <div class="block-47-image">
-                                    <img src="images/person_2.jpg" alt="Image placeholder" class="img-fluid">
+                                    <img src="{{ general.full_images_url }}person_2.jpg" alt="Image placeholder" class="img-fluid">
                                 </div>
                                 <blockquote class="block-47-quote">
                                     <p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.&rdquo;</p>
                                     <cite class="block-47-quote-author">&mdash; Craig Gowen, CEO <a href="#">XYZ Inc.</a></cite>
                                 </blockquote>
                             </div>
-
                         </div>
 
                         <div class="col-md-6">
-
                             <div class="block-47 d-flex mb-5">
                                 <div class="block-47-image">
-                                    <img src="images/person_3.jpg" alt="Image placeholder" class="img-fluid">
+                                    <img src="{{ general.full_images_url }}person_3.jpg" alt="Image placeholder" class="img-fluid">
                                 </div>
                                 <blockquote class="block-47-quote">
                                     <p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.&rdquo;</p>
                                     <cite class="block-47-quote-author">&mdash; Ethan McCown, CEO <a href="#">XYZ Inc.</a></cite>
                                 </blockquote>
                             </div>
-
                         </div>
-                        <div class="col-md-6">
 
+                        <div class="col-md-6">
                             <div class="block-47 d-flex mb-5">
                                 <div class="block-47-image">
-                                    <img src="images/person_4.jpg" alt="Image placeholder" class="img-fluid">
+                                    <img src="{{ general.full_images_url }}person_4.jpg" alt="Image placeholder" class="img-fluid">
                                 </div>
                                 <blockquote class="block-47-quote">
                                     <p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.&rdquo;</p>
                                     <cite class="block-47-quote-author">&mdash; Craig Gowen, CEO <a href="#">XYZ Inc.</a></cite>
                                 </blockquote>
                             </div>
-
                         </div>
-
                     </div>
                 </div>
             </section>
 
-            <section class="site-section border-top pb-0"  id="section-services">
+        <section class="site-section border-top pb-0"  id="section-services">
                 <div class="container">
-
                     <div class="row mb-4">
                         <div class="col-md-12">
                             <div class="section-heading text-center">
@@ -172,32 +164,33 @@
                         </div>
                     </div>
                     <div class="row">
-
                         <div class="col-md-6 col-lg-4 text-center mb-5">
                             <div class="site-service-item site-animate" data-animate-effect="fadeIn">
-              <span class="icon">
-                <span class="icon-phone3"></span>
-              </span>
+                                <span class="icon">
+                                    <span class="icon-phone3"></span>
+                                </span>
                                 <h3 class="mb-4">Mobile Optimize</h3>
                                 <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
                                 <p><a href="#" class="site-link">Learn More <i class="icon-chevron-right"></i></a></p>
                             </div>
                         </div>
+
                         <div class="col-md-6 col-lg-4 text-center mb-5">
                             <div class="site-service-item site-animate" data-animate-effect="fadeIn">
-              <span class="icon">
-                <span class="icon-wallet2"></span>
-              </span>
+                                <span class="icon">
+                                    <span class="icon-wallet2"></span>
+                                </span>
                                 <h3 class="mb-4">Increase Revenue</h3>
                                 <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
                                 <p><a href="#" class="site-link">Learn More <i class="icon-chevron-right"></i></a></p>
                             </div>
                         </div>
+
                         <div class="col-md-6 col-lg-4 text-center mb-5">
                             <div class="site-service-item site-animate" data-animate-effect="fadeIn">
-              <span class="icon">
-                <span class="icon-lightbulb"></span>
-              </span>
+                                <span class="icon">
+                                    <span class="icon-lightbulb"></span>
+                                </span>
                                 <h3 class="mb-4">Intuitive Idea</h3>
                                 <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
                                 <p><a href="#" class="site-link">Learn More <i class="icon-chevron-right"></i></a></p>
@@ -206,29 +199,31 @@
 
                         <div class="col-md-6 col-lg-4 text-center mb-5">
                             <div class="site-service-item site-animate" data-animate-effect="fadeIn">
-              <span class="icon">
-                <span class="icon-phone3"></span>
-              </span>
+                                <span class="icon">
+                                    <span class="icon-phone3"></span>
+                                </span>
                                 <h3 class="mb-4">Mobile Optimize</h3>
                                 <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
                                 <p><a href="#" class="site-link">Learn More <i class="icon-chevron-right"></i></a></p>
                             </div>
                         </div>
+
                         <div class="col-md-6 col-lg-4 text-center mb-5">
                             <div class="site-service-item site-animate" data-animate-effect="fadeIn">
-              <span class="icon">
-                <span class="icon-wallet2"></span>
-              </span>
+                                <span class="icon">
+                                    <span class="icon-wallet2"></span>
+                                </span>
                                 <h3 class="mb-4">Increase Revenue</h3>
                                 <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
                                 <p><a href="#" class="site-link">Learn More <i class="icon-chevron-right"></i></a></p>
                             </div>
                         </div>
+
                         <div class="col-md-6 col-lg-4 text-center mb-5">
                             <div class="site-service-item site-animate" data-animate-effect="fadeIn">
-              <span class="icon">
-                <span class="icon-lightbulb"></span>
-              </span>
+                                <span class="icon">
+                                    <span class="icon-lightbulb"></span>
+                                </span>
                                 <h3 class="mb-4">Intuitive Idea</h3>
                                 <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
                                 <p><a href="#" class="site-link">Learn More <i class="icon-chevron-right"></i></a></p>
@@ -238,11 +233,11 @@
                 </div>
             </section>
 
-            <section class="site-section" id="section-features">
+        <section class="site-section" id="section-features">
                 <div class="container">
                     <div class="row site-section">
                         <div class="col-md-8">
-                            <p><img src="images/laptop_1.jpg" alt="" class="img-fluid"></p>
+                            <p><img src="{{ general.full_images_url }}laptop_1.jpg" alt="" class="img-fluid"></p>
                         </div>
                         <div class="col-md-4">
                             <h3 class="mb-3">Big Benefits for Small Business</h3>
@@ -258,7 +253,7 @@
 
                     <div class="row">
                         <div class="col-md-8 order-md-2">
-                            <p><img src="images/laptop_1.jpg" alt="" class="img-fluid"></p>
+                            <p><img src="{{ general.full_images_url }}laptop_1.jpg" alt="" class="img-fluid"></p>
                         </div>
                         <div class="col-md-4 order-md-1">
                             <h3 class="mb-3">All in One Place</h3>
@@ -274,13 +269,14 @@
                 </div>
             </section>
 
-            <section class="site-section" id="section-portfolio">
+        <section class="site-section" id="section-portfolio">
                 <div class="container">
                     <div class="row">
                         <div class="section-heading text-center col-md-12">
                             <h2>Featured <strong>Portfolio</strong></h2>
                         </div>
                     </div>
+
                     <div class="filters">
                         <ul>
                             <li class="active" data-filter="*">All</li>
@@ -293,15 +289,16 @@
 
                     <div class="filters-content">
                         <div class="row grid">
+
                             <div class="single-portfolio col-sm-4 all mockup">
                                 <div class="relative">
                                     <div class="thumb">
                                         <div class="overlay overlay-bg"></div>
-                                        <img class="image img-fluid" src="images/p1.jpg" alt="">
+                                        <img class="image img-fluid" src="{{ general.full_images_url }}p1.jpg" alt="">
                                     </div>
-                                    <a href="images/p1.jpg" class="img-pop-up">
+                                    <a href="{{ general.full_images_url }}p1.jpg" class="img-pop-up">
                                         <div class="middle">
-                                            <div class="text align-self-center d-flex"><img src="images/preview.png" alt=""></div>
+                                            <div class="text align-self-center d-flex"><img src="{{ general.full_images_url }}preview.png" alt=""></div>
                                         </div>
                                     </a>
                                 </div>
@@ -310,15 +307,16 @@
                                     <div class="cat">Mockup</div>
                                 </div>
                             </div>
+
                             <div class="single-portfolio col-sm-4 all mockup">
                                 <div class="relative">
                                     <div class="thumb">
                                         <div class="overlay overlay-bg"></div>
-                                        <img class="image img-fluid" src="images/p2.jpg" alt="">
+                                        <img class="image img-fluid" src="{{ general.full_images_url }}p2.jpg" alt="">
                                     </div>
-                                    <a href="images/p2.jpg" class="img-pop-up">
+                                    <a href="{{ general.full_images_url }}p2.jpg" class="img-pop-up">
                                         <div class="middle">
-                                            <div class="text align-self-center d-flex"><img src="images/preview.png" alt=""></div>
+                                            <div class="text align-self-center d-flex"><img src="{{ general.full_images_url }}preview.png" alt=""></div>
                                         </div>
                                     </a>
                                 </div>
@@ -327,33 +325,34 @@
                                     <div class="cat">Mockup</div>
                                 </div>
                             </div>
+
                             <div class="single-portfolio col-sm-4 all packaging">
                                 <div class="relative">
                                     <div class="thumb">
                                         <div class="overlay overlay-bg"></div>
-                                        <img class="image img-fluid" src="images/p3.jpg" alt="">
+                                        <img class="image img-fluid" src="{{ general.full_images_url }}p3.jpg" alt="">
                                     </div>
-                                    <a href="images/p3.jpg" class="img-pop-up">
+                                    <a href="{{ general.full_images_url }}p3.jpg" class="img-pop-up">
                                         <div class="middle">
-                                            <div class="text align-self-center d-flex"><img src="images/preview.png" alt=""></div>
+                                            <div class="text align-self-center d-flex"><img src="{{ general.full_images_url }}preview.png" alt=""></div>
                                         </div>
                                     </a>
-
                                 </div>
                                 <div class="p-inner">
                                     <h4>Creative Package Design</h4>
                                     <div class="cat">Packaging</div>
                                 </div>
                             </div>
+
                             <div class="single-portfolio col-sm-4 all packaging">
                                 <div class="relative">
                                     <div class="thumb">
                                         <div class="overlay overlay-bg"></div>
-                                        <img class="image img-fluid" src="images/p4.jpg" alt="">
+                                        <img class="image img-fluid" src="{{ general.full_images_url }}p4.jpg" alt="">
                                     </div>
-                                    <a href="images/p4.jpg" class="img-pop-up">
+                                    <a href="{{ general.full_images_url }}p4.jpg" class="img-pop-up">
                                         <div class="middle">
-                                            <div class="text align-self-center d-flex"><img src="images/preview.png" alt=""></div>
+                                            <div class="text align-self-center d-flex"><img src="{{ general.full_images_url }}preview.png" alt=""></div>
                                         </div>
                                     </a>
                                 </div>
@@ -362,15 +361,16 @@
                                     <div class="cat">Packaging</div>
                                 </div>
                             </div>
+
                             <div class="single-portfolio col-sm-4 all typography">
                                 <div class="relative">
                                     <div class="thumb">
                                         <div class="overlay overlay-bg"></div>
-                                        <img class="image img-fluid" src="images/p5.jpg" alt="">
+                                        <img class="image img-fluid" src="{{ general.full_images_url }}p5.jpg" alt="">
                                     </div>
-                                    <a href="images/p5.jpg" class="img-pop-up">
+                                    <a href="{{ general.full_images_url }}p5.jpg" class="img-pop-up">
                                         <div class="middle">
-                                            <div class="text align-self-center d-flex"><img src="images/preview.png" alt=""></div>
+                                            <div class="text align-self-center d-flex"><img src="{{ general.full_images_url }}preview.png" alt=""></div>
                                         </div>
                                     </a>
                                 </div>
@@ -379,15 +379,16 @@
                                     <div class="cat">Typography</div>
                                 </div>
                             </div>
+
                             <div class="single-portfolio col-sm-4 all photography">
                                 <div class="relative">
                                     <div class="thumb">
                                         <div class="overlay overlay-bg"></div>
-                                        <img class="image img-fluid" src="images/p6.jpg" alt="">
+                                        <img class="image img-fluid" src="{{ general.full_images_url }}p6.jpg" alt="">
                                     </div>
-                                    <a href="images/p6.jpg" class="img-pop-up">
+                                    <a href="{{ general.full_images_url }}p6.jpg" class="img-pop-up">
                                         <div class="middle">
-                                            <div class="text align-self-center d-flex"><img src="images/preview.png" alt=""></div>
+                                            <div class="text align-self-center d-flex"><img src="{{ general.full_images_url }}preview.png" alt=""></div>
                                         </div>
                                     </a>
                                 </div>
@@ -401,14 +402,16 @@
                 </div>
             </section>
 
-            <section class="site-section bg-light " id="section-resume">
+        <section class="site-section bg-light " id="section-resume">
                 <div class="container">
                     <div class="row">
+
                         <div class="col-md-12 mb-5">
                             <div class="section-heading text-center">
                                 <h2>My <strong>Resume</strong></h2>
                             </div>
                         </div>
+
                         <div class="col-md-6">
                             <h2 class="mb-5">Education</h2>
                             <div class="resume-item mb-4">
@@ -440,8 +443,8 @@
                             </div>
 
                         </div>
-                        <div class="col-md-6">
 
+                        <div class="col-md-6">
 
                             <h2 class="mb-5">Experience</h2>
 
@@ -477,100 +480,104 @@
                 </div>
             </section> <!-- .section -->
 
-            <section class="site-section" id="section-blog">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12 mb-5">
-                            <div class="section-heading text-center">
-                                <h2>Blog on <strong>Medium</strong></h2>
-                            </div>
+        <section class="site-section" id="section-blog">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 mb-5">
+                        <div class="section-heading text-center">
+                            <h2>Blog on <strong>Medium</strong></h2>
                         </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-sm-6 col-lg-4 mb-4">
-                            <div class="blog-entry">
-                                <a href="#"><img src="images/post_1.jpg" alt="Image placeholder" class="img-fluid"></a>
-                                <div class="blog-entry-text">
-                                    <h3><a href="#">Creative Product Designer From Facebook</a></h3>
-                                    <p class="mb-4">Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
-
-                                    <div class="meta">
-                                        <a href="#"><span class="icon-calendar"></span> Aug 7, 2018</a>
-                                        <a href="#"><span class="icon-bubble"></span> 5 Comments</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-6 col-lg-4 mb-4">
-                            <div class="blog-entry">
-                                <a href="#"><img src="images/post_2.jpg" alt="Image placeholder" class="img-fluid"></a>
-                                <div class="blog-entry-text">
-                                    <h3><a href="#">Creative Product Designer From Facebook</a></h3>
-                                    <p class="mb-4">Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
-
-                                    <div class="meta">
-                                        <a href="#"><span class="icon-calendar"></span> Aug 7, 2018</a>
-                                        <a href="#"><span class="icon-bubble"></span> 5 Comments</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-6 col-lg-4 mb-4">
-                            <div class="blog-entry">
-                                <a href="#"><img src="images/post_3.jpg" alt="Image placeholder" class="img-fluid"></a>
-                                <div class="blog-entry-text">
-                                    <h3><a href="#">Creative Product Designer From Facebook</a></h3>
-                                    <p class="mb-4">Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
-
-                                    <div class="meta">
-                                        <a href="#"><span class="icon-calendar"></span> Aug 7, 2018</a>
-                                        <a href="#"><span class="icon-bubble"></span> 5 Comments</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
-            </section>
 
-            <section class="site-section bg-light" id="section-contact">
+                <div class="row">
+                    <div class="col-sm-6 col-lg-4 mb-4">
+                        <div class="blog-entry">
+                            <a href="#"><img src="{{ general.full_images_url }}post_1.jpg" alt="Image placeholder" class="img-fluid"></a>
+                            <div class="blog-entry-text">
+                                <h3><a href="#">Creative Product Designer From Facebook</a></h3>
+                                <p class="mb-4">Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+
+                                <div class="meta">
+                                    <a href="#"><span class="icon-calendar"></span> Aug 7, 2018</a>
+                                    <a href="#"><span class="icon-bubble"></span> 5 Comments</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-4 mb-4">
+                        <div class="blog-entry">
+                            <a href="#"><img src="{{ general.full_images_url }}post_2.jpg" alt="Image placeholder" class="img-fluid"></a>
+                            <div class="blog-entry-text">
+                                <h3><a href="#">Creative Product Designer From Facebook</a></h3>
+                                <p class="mb-4">Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+
+                                <div class="meta">
+                                    <a href="#"><span class="icon-calendar"></span> Aug 7, 2018</a>
+                                    <a href="#"><span class="icon-bubble"></span> 5 Comments</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-4 mb-4">
+                        <div class="blog-entry">
+                            <a href="#"><img src="{{ general.full_images_url }}post_3.jpg" alt="Image placeholder" class="img-fluid"></a>
+                            <div class="blog-entry-text">
+                                <h3><a href="#">Creative Product Designer From Facebook</a></h3>
+                                <p class="mb-4">Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+
+                                <div class="meta">
+                                    <a href="#"><span class="icon-calendar"></span> Aug 7, 2018</a>
+                                    <a href="#"><span class="icon-bubble"></span> 5 Comments</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        {# Contácto #}
+        <section class="site-section bg-light" id="section-contact">
                 <div class="container">
                     <div class="row">
+
+                        {# Título #}
                         <div class="col-md-12 mb-5">
                             <div class="section-heading text-center">
-                                <h2>Wanna <strong>Start Work</strong> With Me?</h2>
+                                <h2>¿Estás <strong>Interesado En Adquirir</strong> Nuestros Productos?</h2>
                             </div>
                         </div>
 
+                        {# Formulario #}
                         <div class="col-md-7 mb-5 mb-md-0">
                             <form action="" class="site-form">
-                                <h3 class="mb-5">Get In Touch</h3>
+                                <h3 class="mb-5">Ponte En Contacto</h3>
                                 <div class="form-group">
-                                    <input type="text" class="form-control px-3 py-4" placeholder="Your Name">
+                                    <input type="text" class="form-control px-3 py-4" placeholder="Nombre">
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control px-3 py-4" placeholder="Your Email">
+                                    <input type="email" class="form-control px-3 py-4" placeholder="Correo Electrónico">
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control px-3 py-4" placeholder="Your Phone">
+                                    <input type="email" class="form-control px-3 py-4" placeholder="Teléfono / Celular">
                                 </div>
                                 <div class="form-group mb-5">
-                                    <textarea class="form-control px-3 py-4"cols="30" rows="10" placeholder="Write a Message"></textarea>
+                                    <textarea class="form-control px-3 py-4" cols="30" rows="10" placeholder="Escríbenos tu mensaje"></textarea>
                                 </div>
                                 <div class="form-group">
-                                    <input type="submit" class="btn btn-primary  px-4 py-3" value="Send Message">
+                                    <input type="submit" class="btn btn-primary  px-4 py-3" value="Enviar">
                                 </div>
                             </form>
                         </div>
+
                         <div class="col-md-5 pl-md-5">
-                            <h3 class="mb-5">My Contact Details</h3>
+                            <h3 class="mb-5">Datos de Contacto</h3>
                             <ul class="site-contact-details">
                                 <li>
-                                    <span class="text-uppercase">Email</span>
+                                    <span class="text-uppercase">Correo Electrónico:</span>
                                     site@gmail.com
                                 </li>
                                 <li>
@@ -593,8 +600,8 @@
                 </div>
             </section>
 
-            {# Footer #}
-            {% include 'footer.twig' %}
+        {# Footer #}
+        {% include 'footer.twig' %}
 
         {% endblock %}
 
