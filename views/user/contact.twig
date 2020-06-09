@@ -1,146 +1,56 @@
 
-{% extends "base-document.twig" %}
+    <section class="site-section bg-light" id="section-contact">
+        <div class="container">
+            <div class="row">
 
-        {% block content %}
-
-            <div class="super_container">
-
-                {# Header - Nav (Menú) #}
-                {% include 'nav-menu.twig' %}
-
-                {# Home #}
-                <div class="home">
-                    <div class="background_image" style="background-image:url({{ general.full_images_url }}contact.jpg)"></div>
-                    <div class="home_container">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col">
-                                    <div class="home_content text-center">
-                                        <div class="home_title">Contato</div>
-                                        <div class="booking_form_container">
-                                            <form action="#" class="booking_form" id="booking_form">
-                                                <div class="d-flex flex-xl-row flex-column align-items-start justify-content-start">
-                                                    <div class="booking_input_container d-flex flex-row align-items-start justify-content-start flex-wrap">
-                                                        <div><input type="text" class="datepicker booking_input booking_input_a booking_in" placeholder="Check in" required="required"></div>
-                                                        <div><input type="text" class="datepicker booking_input booking_input_a booking_out" placeholder="Check out" required="required"></div>
-                                                        <div><input type="number" class="booking_input booking_input_b" placeholder="Children" required="required"></div>
-                                                        <div><input type="number" class="booking_input booking_input_b" placeholder="Room" required="required"></div>
-                                                    </div>
-                                                    <div><button class="booking_button trans_200">Reservar</button></div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                {# Título #}
+                <div class="col-md-12 mb-5">
+                    <div class="section-heading text-center">
+                        <h2>¿Estás <strong>Interesado En Adquirir</strong> Nuestros Productos?</h2>
                     </div>
                 </div>
 
-                <!-- Contact -->
-
-                <div class="contact">
-                    <div class="container">
-                        <div class="row">
-
-                            <!-- Contact Content -->
-                            <div class="col-lg-6">
-                                <div class="contact_content">
-                                    <div class="contact_title"><h2>Entrar em contato</h2></div>
-                                    <div class="contact_list">
-                                        <ul>
-                                            <li><b>Endereço: </b>Av.Oceânica, 819, Atalaia - Aracaju/SE</li>
-                                            <li><b>Tel: </b>(79)3025-2483</li>
-                                            <li><b>Tel: </b>(79)3025-2441</li>
-                                            <li><b>Tel: </b>(79)3243-2442</li>
-                                            <li><b>Tim: </b>(79)9145-4410</li>
-                                            <li><b>Vivo: </b>(79)9601-0210</li>
-                                            <li><b>Email: </b>reservas@hotellitoral.com.br</li>
-                                        </ul>
-                                    </div>
-                                    <div class="contact_form_container">
-                                        <form action="#" class="contact_form" id="contact_form">
-{#                                            <div class="row">#}
-{#                                                #}{# Calificacion #}
-{#                                                <div class="col-md-12 input_container">#}
-{#                                                    <label>Como foi a sua estadia?</label>#}
-{#                                                    <div>#}
-{#                                                        <p class="clasificacion">#}
-{#                                                            <input id="radio1" type="radio" name="stars_rating" value="5">#}
-{#                                                            <label for="radio1">★</label>#}
-{#                                                            <input id="radio2" type="radio" name="stars_rating" value="4">#}
-{#                                                            <label for="radio2">★</label>#}
-{#                                                            <input id="radio3" type="radio" name="stars_rating" value="3">#}
-{#                                                            <label for="radio3">★</label>#}
-{#                                                            <input id="radio4" type="radio" name="stars_rating" value="2">#}
-{#                                                            <label for="radio4">★</label>#}
-{#                                                            <input id="radio5" type="radio" name="stars_rating" value="1">#}
-{#                                                            <label for="radio5">★</label>#}
-{#                                                        </p>#}
-{#                                                    </div>#}
-{#                                                </div>#}
-{#                                            </div>#}
-                                            <div class="row">
-                                                {# Nombre #}
-                                                <div class="col-md-12 input_container">
-                                                    <input type="text" class="contact_input" placeholder="Seu nome" required="required">
-                                                </div>
-
-                                                {# Email #}
-                                                <div class="col-md-6 input_container">
-                                                    <input type="tel" class="contact_input" placeholder="Seu email" required="required">
-                                                </div>
-
-                                                {# Telefone #}
-                                                <div class="col-md-6 input_container">
-                                                    <input type="email" class="contact_input" placeholder="Seu telefone" required="required">
-                                                </div>
-                                            </div>
-
-                                            <div class="row">
-                                                {# Asunto #}
-                                                <div class="col-md-12 input_container">
-                                                    <input type="text" class="contact_input" placeholder="Sujeito">
-                                                </div>
-
-                                                {# Texto #}
-                                                <div class="col-md-12 input_container">
-                                                    <textarea class="contact_input contact_textarea" placeholder="Mensagem" required="required"></textarea>
-                                                </div>
-                                            </div>
-
-                                            {# Boton Enviar #}
-                                            <button class="contact_button">Enviar</button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {# Google Map #}
-                            <div class="col-xl-5 col-lg-6 offset-xl-1">
-                                <div class="contact_map">
-                                    <div class="map">
-                                        <div id="google_map" class="google_map">
-                                            <div class="map_container">
-                                                <div id="map"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
+                {# Formulario #}
+                <div class="col-md-7 mb-5 mb-md-0">
+                    <form action="" class="site-form js-contact-form">
+                        <h3 class="mb-5">Ponte En Contacto</h3>
+                        <div class="form-group">
+                            <input type="text" class="form-control px-3 py-4 js-input-number js-contact-name" placeholder="Nombre*">
                         </div>
-                    </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control px-3 py-4 js-contact-email" placeholder="Correo Electrónico*">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control px-3 py-4 js-contact-phone" placeholder="Teléfono / Celular">
+                        </div>
+                        <div class="form-group mb-5">
+                            <textarea class="form-control px-3 py-4 js-contact-text" cols="30" rows="3" placeholder="Escríbenos tu mensaje*"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-primary px-4 py-3 js-contact-btn-send-email" value="Enviar">
+                        </div>
+                    </form>
                 </div>
 
-                {# Footer #}
-                {% include 'footer.twig' %}
+                <div class="col-md-5 pl-md-5">
+                    <h3 class="mb-5">Datos de Contacto</h3>
+                    <ul class="site-contact-details">
+                        <li>
+                            <span class="text-uppercase">Correo Electrónico:</span>
+                            ventas@ecofynity.com
+                        </li>
+                        <li>
+                            <span class="text-uppercase">Teléfonos:</span>
+                            +30 976 1382 9921
+                        </li>
+                        <li>
+                            <span class="text-uppercase">Dirección:</span>
+                            Ibagué-Tolima, CO <br>
+                            Barrio Nacional  <br>
+                            Cra 4b No. 37-53
+                        </li>
+                    </ul>
+                </div>
             </div>
-
-        {% endblock %}
-
-        {% block footer_scripts %}
-            {# Aquí van los scripts Js #}
-            <script type="text/javascript" src="{{ general.full_assets_url }}js/user/contact.js"></script>
-            <script type="text/javascript" src="{{ general.full_assets_url }}template/js/contact.js"></script>
-        {% endblock %}
+        </div>
+    </section>}

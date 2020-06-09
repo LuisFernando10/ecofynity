@@ -1,7 +1,4 @@
 
-    $('.js-input-number').on('input', function () {
-        this.value = this.value.replace(/[^0-9]/g,'');
-    });
 
     /**
      * @Description: Método para notificación de 'Exito'
@@ -31,7 +28,7 @@
             message: message
         },{
             type: 'danger',
-            timer: 4000,
+            timer: time,
             placement: {
                 from: 'top',
                 align: 'right'
@@ -79,6 +76,16 @@
             index.removeClass('border-bottom border-danger');
             return true;
         }
+    }
+
+    function validateEmail(email) {
+        let regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        return regex.test(email);
+    }
+
+    function validateNumber(number) {
+        let regExp = /^([0-9])*$/;
+        return regExp.test(number);
     }
 
     /**
