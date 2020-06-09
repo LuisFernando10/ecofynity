@@ -6,7 +6,7 @@
             {# Logo #}
             <div class="logo">
                 <a href="{{general.full_web_url}}" class="simple-text logo-normal">
-                    Hotel Litoral
+                    CUPIDO
                 </a>
             </div>
 
@@ -24,36 +24,51 @@
                         </a>
                     </li>
 
-                    {# Rooms #}
-                    <li class="nav-item {{ (general.class_url == 'quartos') ? 'active' : '' }}">
-                        <a class="nav-link" href="{{general.full_web_url}}quartos/">
-                            <i class="material-icons">meeting_room</i>
-                            <p>Quartos</p>
+                    <li class="nav-item {{ (general.class_url == 'categoria') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{general.full_web_url}}categoria/">
+                            <i class="material-icons">article</i>
+                            <p>Categorías</p>
                         </a>
                     </li>
 
-                    {# Offerings #}
-                    <li class="nav-item {{ (general.class_url == 'oferecimentos') ? 'active' : '' }}">
-                        <a class="nav-link" href="{{general.full_web_url}}oferecimentos/">
-                            <i class="material-icons">room_service</i>
-                            <p>Oferecimentos</p>
+                    {# Rooms #}
+                    <li class="nav-item {{ (general.class_url == 'producto') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{general.full_web_url}}producto/">
+                            <i class="material-icons">shopping_cart</i>
+                            <p>Productos</p>
                         </a>
                     </li>
+
+                    <li class="nav-item {{ (general.class_url == 'galeria') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{general.full_web_url}}galeria/">
+                            <i class="material-icons">image</i>
+                            <p>Galería</p>
+                        </a>
+                    </li>
+
+
+                    {#                    #}{# Offerings #}
+{#                    <li class="nav-item {{ (general.class_url == 'oferecimentos') ? 'active' : '' }}">#}
+{#                        <a class="nav-link" href="{{general.full_web_url}}oferecimentos/">#}
+{#                            <i class="material-icons">room_service</i>#}
+{#                            <p>Oferecimentos</p>#}
+{#                        </a>#}
+{#                    </li>#}
 
                     {# Configurations #}
-                    <li class="nav-item {{ (general.class_url == 'configuracoes') ? 'active' : '' }}">
-                        <a class="nav-link" href="{{general.full_web_url}}configuracoes/">
-                            <i class="material-icons">settings</i>
-                            <p>Configurações</p>
-                        </a>
-                    </li>
+{#                    <li class="nav-item {{ (general.class_url == 'configuracoes') ? 'active' : '' }}">#}
+{#                        <a class="nav-link" href="{{general.full_web_url}}configuracion/">#}
+{#                            <i class="material-icons">settings</i>#}
+{#                            <p>Configuración</p>#}
+{#                        </a>#}
+{#                    </li>#}
 
                     {# Cerrar Sesion #}
                     <hr>
                     <li class="nav-item">
                         <a class="nav-link" href="{{general.full_web_url}}salir/">
                             <i class="material-icons">power_settings_new</i>
-                            <p>Sair</p>
+                            <p>Salir</p>
                         </a>
                     </li>
                 </ul>

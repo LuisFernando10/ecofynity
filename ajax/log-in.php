@@ -19,14 +19,13 @@
 
         //Validamos si la consulta retornó datos
         if ($result_validation_user_password != false){
-
             //$token=ValidateData::generateRandomToken();
 
             //Validamos y definimos el rol que tendrá el usuario
-            if ($result_validation_user_password[0]['rol'] == 2)
-                $role = 'user';
-            else if ($result_validation_user_password[0]['rol'] == 1)
-                $role = 'admin';
+            if ($result_validation_user_password[0]['rol'] == 'user')
+                $rol = 'user';
+            else if ($result_validation_user_password[0]['rol'] == 'admin')
+                $rol = 'admin';
 
             // Obtenemos el 'Id_usuario' y el 'Id_empresa'
             $user_id = $result_validation_user_password[0]['id_usuario'];
@@ -36,16 +35,16 @@
             if (Apc::existApc($key_session)==true){
                 $userCredentials = array(
                     'sessionStatus' => '1',
-                    'sessionRole' => 'session_iniciada'
+                    'sessionrol' => 'session_iniciada'
                 );
                 echo json_encode($userCredentials);
                 exit();
             }else{
-                $login_confirm = Security::sessionCreate($role, $user_id);
+                $login_confirm = Security::sessionCreate($rol, $user_id);
             }*/
 
             //Creamos y definimos los datos de $_SESSION[]
-            $login_confirm = Security::sessionCreate($role, $user_id);
+            $login_confirm = Security::sessionCreate($rol, $user_id);
 
             //Validamos si se establecieron las variables de Session
             if($login_confirm){
@@ -53,19 +52,19 @@
                 //Creamos array que contendrá los datos a retornar
                 $response = array(
                     'session_status' => '1',
-                    'session_role' => $role
+                    'session_rol' => $rol
                 );
             }
             else
                 $response = array(
                     'session_status' => '0',
-                    'session_role' => 'na'
+                    'session_rol' => 'na'
                 );
         }
         else
             $response = array(
                 'session_status' => '0',
-                'session_role' => 'na'
+                'session_rol' => 'na'
             );
 
         //Retornamos la respuesta en formato Json

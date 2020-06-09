@@ -7,12 +7,12 @@
          * @Date: 03-mar-2020
          */
 
-        class Rooms
+        class Producto
         {
             /**
              * @Description: Metodo que obtem os dados correspondentes aos 'Quartos'
              */
-            static function getAll($page = NULL, $pagination = NULL, $type = NULL, $id_quarto = NULL, $nome = NULL, $descricao = NULL, $image = NULL, $preco = NULL, $adultos = NULL, $estado = NULL, $order_control = NULL) {
+            static function getAll($page = NULL, $pagination = NULL, $type = NULL, $id_producto = NULL, $nombre = NULL, $descripcion = NULL, $imagen = NULL, $precio = NULL,  $estado = NULL, $descuento = NULL) {
 
                 //Valor por defecto para 'page'
                 if (isset($page) && $page != NULL && is_numeric($page)){
@@ -41,70 +41,62 @@
                 //Construimos las condiciones de la consulta
                 $conditions = "";
 
-                //Filtro por '$id_quarto'
-                if ($id_quarto !== NULL) {
+                //Filtro por '$id_producto'
+                if ($id_producto !== NULL) {
                     unset($this_condition);
-                    $this_condition = 'AND quartos.id_quarto = "%s"';
-                    $this_condition = sprintf($this_condition, $id_quarto);
+                    $this_condition = 'AND productos.id_producto = "%s"';
+                    $this_condition = sprintf($this_condition, $id_producto);
 
                     $conditions .= $this_condition;
                     unset($this_condition);
                 }
 
-                //Filtro por '$nome'
-                if ($nome !== NULL) {
+                //Filtro por '$nombre'
+                if ($nombre !== NULL) {
                     unset($this_condition);
-                    $this_condition = 'AND quartos.nome = "%s"';
-                    $this_condition = sprintf($this_condition, $nome);
+                    $this_condition = 'AND productos.nombre = "%s"';
+                    $this_condition = sprintf($this_condition, $nombre);
 
                     $conditions .= $this_condition;
                     unset($this_condition);
                 }
 
-                //Filtro por '$descricao'
-                if ($descricao !== NULL) {
+                //Filtro por '$descripcion'
+                if ($descripcion !== NULL) {
                     unset($this_condition);
-                    $this_condition = 'AND quartos.descricao = "%s"';
-                    $this_condition = sprintf($this_condition, $descricao);
+                    $this_condition = 'AND productos.descripcion = "%s"';
+                    $this_condition = sprintf($this_condition, $descripcion);
 
                     $conditions .= $this_condition;
                     unset($this_condition);
                 }
 
-                //Filtro por '$image'
-                if ($image !== NULL) {
+                //Filtro por '$imagen'
+                if ($imagen !== NULL) {
                     unset($this_condition);
-                    $this_condition = 'AND quartos.image = "%s"';
-                    $this_condition = sprintf($this_condition, $image);
+                    $this_condition = 'AND productos.imagen = "%s"';
+                    $this_condition = sprintf($this_condition, $imagen);
 
                     $conditions .= $this_condition;
                     unset($this_condition);
                 }
 
-                //Filtro por '$preco'
-                if ($preco !== NULL) {
+                //Filtro por '$precio'
+                if ($precio !== NULL) {
                     unset($this_condition);
-                    $this_condition = 'AND quartos.preco = "%s"';
-                    $this_condition = sprintf($this_condition, $preco);
+                    $this_condition = 'AND productos.precio = "%s"';
+                    $this_condition = sprintf($this_condition, $precio);
 
                     $conditions .= $this_condition;
                     unset($this_condition);
                 }
 
-                //Filtro por '$adultos'
-                if ($adultos !== NULL) {
-                    unset($this_condition);
-                    $this_condition = 'AND quartos.adultos = "%s"';
-                    $this_condition = sprintf($this_condition, $adultos);
 
-                    $conditions .= $this_condition;
-                    unset($this_condition);
-                }
 
                 //Filtro por '$estado'
                 if ($estado !== NULL) {
                     unset($this_condition);
-                    $this_condition = 'AND quartos.estado = "%s"';
+                    $this_condition = 'AND productos.estado = "%s"';
                     $this_condition = sprintf($this_condition, $estado);
 
                     $conditions .= $this_condition;
@@ -112,10 +104,10 @@
                 }
 
                 //Filtro por '$order_control'
-                if ($order_control !== NULL) {
+                if ($descuento !== NULL) {
                     unset($this_condition);
-                    $this_condition = 'AND quartos.order_control = "%s"';
-                    $this_condition = sprintf($this_condition, $order_control);
+                    $this_condition = 'AND productos.descuento = "%s"';
+                    $this_condition = sprintf($this_condition, $descuento);
 
                     $conditions .= $this_condition;
                     unset($this_condition);
@@ -128,14 +120,15 @@
                 }
                 else {
                     $sql_select = "
-                            quartos.id_quarto,
-                            quartos.nome,
-                            quartos.descricao,
-                            quartos.image,
-                            quartos.preco,
-                            quartos.adultos,
-                            quartos.estado,
-                            quartos.order_control
+                            productos.id_producto,
+                            productos.nombre,
+                            productos.descripcion,
+                            productos.id_categoria,
+                            productos.imagen,
+                            productos.precio,
+                            productos.estado,
+                            productos.descuento,
+                            categoria.nombre as categoria
                         ";
 
                     $sql_limit = "LIMIT $limit_start, $pagination";
@@ -146,12 +139,14 @@
                     SELECT 
                         $sql_select
                     FROM 
-                        quartos
+                        productos
+                    inner join
+                    categoria on productos.id_categoria = categoria.id_categoria 
                     WHERE
                         1+1=2
                         $conditions
                     ORDER BY 
-                        quartos.nome
+                        productos.nombre
                     $sql_limit
                 ";
 
@@ -180,26 +175,25 @@
             }
 
             /**
-             * @Description: Metodo que inserta um quarto no BD
+             * @Description: Metodo que inserta um producto no BD
              */
-            static function insertRoom($nome = NULL, $descricao = NULL, $image = NULL, $preco = NULL, $adultos = NULL, $estado = NULL){
-
+            static function insertProducto($id_categoria = NULL,$nombre = NULL, $descripcion = NULL, $imagen = NULL, $precio = NULL, $descuento = NULL, $estado = NULL){
                 // ** Proceso para validar si existe un cuarto con el mismo nombre **
-                $existing_quarto = Rooms::getAll(NULL,NULL,NULL,NULL, $nome);
+                $existing_producto = Producto::getAll(NULL,NULL,NULL,NULL, $nombre);
 
-                if ($existing_quarto != NULL)
-                    return 'existing_quarto';
+                if ($existing_producto != NULL)
+                    return 'existing_producto';
                 else{
                     //Preparamos Query
                     $sql = "
-                        INSERT INTO quartos (
-                            nome,
-                            descricao,
-                            image,
-                            preco,
-                            adultos,
-                            estado,
-                            order_control
+                        INSERT INTO productos (
+                            id_categoria,
+                            nombre,
+                            descripcion,
+                            imagen,
+                            precio,
+                            descuento,
+                            estado
                         )
                         VALUES (
                             '%s',
@@ -208,17 +202,18 @@
                             '%s',
                             '%s',
                             '%s',
-                            NULL
+                            '%s'
                         )
                     ";
 
                     //Nos substitui os valores
                     $sql = sprintf($sql,
-                        $nome,
-                        $descricao,
-                        $image,
-                        $preco,
-                        $adultos,
+                        $id_categoria,
+                        $nombre,
+                        $descripcion,
+                        $imagen,
+                        $precio,
+                        $descuento,
                         $estado
                     );
 
@@ -234,84 +229,85 @@
             }
 
             /**
-             * @Description: Metodo que atualiza um quarto no BD
+             * @Description: Metodo que atualiza um producto no BD
              */
-            static function updateRoom($id_quarto = NULL, $nome = NULL, $descricao = NULL, $image = NULL, $preco = NULL, $adultos = NULL, $estado = NULL){
+            static function updateProducto($id_producto = NULL, $id_categoria = NULL, $nombre = NULL, $descripcion = NULL, $imagen = NULL, $precio = NULL, $descuento = NULL, $estado = NULL){
 
                 // ** Proceso para validar si existe un cuarto con el mismo nombre **
-                $existing_quarto = Rooms::getAll(NULL,NULL,NULL,NULL, $nome);
+                $existing_producto = Producto::getAll(NULL,NULL,NULL,NULL, $nombre);
 
-                //Variavel de control pra controlar a existencia do mesmo nome em outra tabela
+                //Variavel de control pra controlar a existencia do mesmo nombre em outra tabela
                 $existing_control = true;
 
                 //Validamos se a variável é uma matriz (array) pra não possuir erros com o PHP ao momento de percorrer o 'foreach'
-                if (is_array($existing_quarto) || is_object($existing_quarto))
-                    //Percorremos os dados pra validar se o nome que vai-se salvar já existe com o meu Id
-                    foreach ($existing_quarto as $value){
+                if (is_array($existing_producto) || is_object($existing_producto))
+                    //Percorremos os dados pra validar se o nombre que vai-se salvar já existe com o meu Id
+                    foreach ($existing_producto as $value){
 
-                        //Validamos se o nome existe no mesmo Id que o atual da edição
-                        if ($value['id_quarto'] !== $id_quarto)
+                        //Validamos se o nombre existe no mesmo Id que o atual da edição
+                        if ($value['id_producto'] !== $id_producto)
                             $existing_control = false;
                     }
 
-                //Validamos se o nome existe em outra tabela ou não
+                //Validamos se o nombre existe em outra tabela ou não
                 if ($existing_control == false)
-                    return 'existing_quarto';
+                    return 'existing_producto';
                 else{
-                    //Validamos se existe ou nao uma imagem pra atualizar
-                    if ($image != NULL)
-                        $update_image = "image = '$image',";
+                    //Validamos se existe ou nao uma imagenm pra atualizar
+                    if ($imagen != NULL)
+                        $update_imagen = "imagen = '$imagen',";
                     else
-                        $update_image = "";
+                        $update_imagen = "";
 
                     //Preparamos el Query
                     $sql = "
-                        UPDATE quartos
+                        UPDATE productos
                         SET
-                            nome = '%s',
-                            descricao = '%s',
-                            $update_image
-                            preco = '%s',
-                            adultos = '%s',
+                            id_categoria = '%s',
+                            nombre = '%s',
+                            descripcion = '%s',
+                            $update_imagen
+                            precio = '%s',
+                            descuento = '%s',
                             estado = '%s'
                         WHERE
-                            id_quarto = '%s'
+                            id_producto = '%s'
                     ";
 
                     //Reemplazamos valores
                     $sql = sprintf($sql,
-                        $nome,
-                        $descricao,
-                        $preco,
-                        $adultos,
+                        $id_categoria,
+                        $nombre,
+                        $descripcion,
+                        $precio,
+                        $descuento,
                         $estado,
-                        $id_quarto
+                        $id_producto
                     );
 
                     //Ejecutamos el Query
                     $result = DataBase::query($sql);
-
                     //Retornamos el resultado de la consulta (true-false)
                     return $result;
                 }
             }
 
             /**
-             * @Description: Metodo que deletea um quarto desde o BD
+             * @Description: Metodo que deletea um producto desde o BD
              */
-            static function deleteRoom($id_quarto = NULL){
+            static function deleteProducto($id_producto = NULL){
 
                 //A gente prepara o query
                 $sql = "
                     DELETE FROM
-                        quartos 
+                        productos 
                     WHERE 
-                        id_quarto = '%s'
+                        id_producto = '%s'
                 ";
 
                 //A gente substituimos os valores
                 $sql = sprintf($sql,
-                    $id_quarto
+                    $id_producto
                 );
 
                 //A gente executa o query

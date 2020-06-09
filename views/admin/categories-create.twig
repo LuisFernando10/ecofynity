@@ -1,0 +1,57 @@
+
+    {% extends "base-document.twig" %}
+    {% block content %}
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="offset-md-2 col-md-8">
+                        <div class="card">
+                            <div class="card-header card-header-primary">
+                                <div class="row align-items-center">
+                                    <div class="col-8">
+                                        <h5 class="card-title">Crear Categoría</h5>
+                                    </div>
+                                    <div class="col-4 text-right">
+                                        <a href="{{general.full_web_url}}categoria/"><button type="button" class="btn btn-info">Volver</button></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+
+                                {# Nome #}
+                                <div class="form-row mt-3">
+                                    <div class="offset-md-2 col-md-8">
+                                        <div class="form-group bmd-form-group">
+                                            <label>Nombre</label>
+                                            <input type="text" class="form-control js-categoria-nombre">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {# Imagem #}
+                                <div class="form-group form-file-upload form-file-simple mt-4">
+                                    <label>Imagen</label>
+                                    <div class="input-group">
+                                        <input type="file" class="inputFileHidden js-categoria-image">
+                                        <input type="text" class="form-control inputFileVisible" placeholder="Selecione una imagen" readonly>
+                                        <span class="input-group-btn js-icon-open-input-file">
+                                            <button type="button" class="btn btn-fab btn-round btn-primary">
+                                                <i class="material-icons">attach_file</i>
+                                            </button>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                {# Botao de salvar #}
+                                <button type="btn" class="btn btn-primary pull-right btn-save">Guardar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+
+    {% block footer_scripts %}
+        <script type="text/javascript" src="{{ general.full_assets_url }}js/admin/categoriaCrud.js"></script>
+    {% endblock %}

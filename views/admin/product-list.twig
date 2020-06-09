@@ -1,0 +1,89 @@
+
+{% extends "base-document.twig" %}
+    {% block content %}
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header card-header-primary">
+                                <div class="row align-items-center">
+                                    <div class="col-8">
+                                        <h4 class="card-title ">Lista de Productos</h4>
+                                    </div>
+                                    <div class="col-4 text-right">
+                                        <a href="{{general.full_web_url}}producto/create/"><button type="button" class="btn btn-info">Crear</button></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-shopping table-hover">
+                                        <thead class="text-primary">
+                                        <tr>
+                                            <th>Imagen</th>
+                                            <th>Nombre</th>
+                                            <th>Categoria</th>
+                                            <th>Precio</th>
+                                            <th>Descuento</th>
+                                            <th>Estado</th>
+                                            <th>Acciones</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+
+
+                                        {# Percorremos os dados dos producto pra renderizar as linhas #}
+                                        {% for producto in data_producto %}
+
+                                            {% if producto.estado == 'Activo' %}
+                                                {% set etiqueta ='badge-success' %}
+                                            {% else %}
+                                                {% set etiqueta ='badge-danger' %}
+                                            {% endif %}
+
+                                            <tr class="js-producto-tr">
+                                                <td>
+                                                    <div class="img-container">
+                                                        <img src="{{ general.full_images_url }}/galery/{{ producto.imagen }}" class="img-thumbnail" rel="nofollow" alt="Foto">
+                                                    </div>
+                                                </td>
+                                                <td>{{ producto.nombre }}</td>
+                                                <td>{{ producto.categoria }}</td>
+                                                <td>{{ producto.precio }}</td>
+                                                <td>{{ producto.descuento }}</td>
+                                                <td><span class="badge {{ etiqueta }}">{{ producto.estado }}</span></td>
+
+                                                <td class="td-actions text-left">
+
+                                                    {# Editar #}
+                                                    <a href="{{ general.full_web_url }}producto/edit/{{ producto.id_producto }}/">
+                                                        <button type="button" rel="tooltip" title="" class="btn btn-primary btn-link btn-sm" data-original-title="Editar">
+                                                            <i class="material-icons">edit</i>
+                                                        </button>
+                                                    </a>
+
+                                                    {# Deletar #}
+                                                    <a href="#">
+                                                        <button type="button" rel="tooltip" title="" class="btn btn-danger btn-link btn-sm js-delete" data-original-title="Remover" data-id="{{ producto.id_producto }}">
+                                                            <i class="material-icons">delete</i>
+                                                            <div class="ripple-container"></div>
+                                                        </button>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+
+    {% block footer_scripts %}
+        <script type="text/javascript" src="{{ general.full_assets_url }}js/admin/productoCrud.js"></script>
+    {% endblock %}

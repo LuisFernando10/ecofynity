@@ -1,18 +1,20 @@
 
-    $('.js-btn-reservation').on('click', function () {
+$('.select_categoria').click(function () {
+    // eliminamos el estado active en todos las categorias
+    $('.select_categoria').removeClass('active');
 
-         $.ajax({
-            type : 'POST',
-            url : FULL_WEB_URL+'ajax/user/users.php',
-            data : {
-                dato : 'Holix'
-            },
-            success : function (response) {
+    var href = $(this).attr('data_contenedor');
+    // añadimos el active al seleccioando
+    $(this).addClass('active')
 
-                //Parseamos la respuesta a formato JSON
-                let json_object = $.parseJSON(response);
+    if (href == 'todos')
+        $('[data_categoria]').show();
+    else{
 
-                console.log(json_object);
-            }
-        });
-    });
+        // ocultamos todos los productos
+        $('[data_categoria]').hide();
+
+        //mostramos solo los productos de esta categoria.
+        $('[data_categoria='+href+']').show();
+    }
+})

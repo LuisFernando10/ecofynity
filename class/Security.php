@@ -75,7 +75,7 @@
             /**
              * @Description: Método que permite crear la sesión y le permite continuar al usuario
              */
-            static function sessionCreate($user_role = null, $user_id = null, $token = NULL){
+            static function sessionCreate($user_rol = null, $user_id = null, $token = NULL){
 
                 //Se inicializa el manejo de sesiones
                 if(session_status() == PHP_SESSION_NONE)
@@ -89,7 +89,7 @@
                 $_SESSION['session_status'] = '1';
 
                 //Se carga el 'rol' del usuario
-                $_SESSION['session_role'] = $user_role;
+                $_SESSION['session_rol'] = $user_rol;
 
                 //Se carga el 'id' del usuario
                 $_SESSION['user_id'] = $user_id;

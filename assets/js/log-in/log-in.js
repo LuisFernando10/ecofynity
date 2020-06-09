@@ -22,10 +22,10 @@
                 if (json_obj.session_status === '1'){
 
                     //Validamos la existencia de un 'rol'
-                    if (json_obj.session_role){
+                    if (json_obj.session_rol){
 
                         //Validamos cada rol devuelto por la sesión, para agregar los respectivos direccionamientos a las vistas
-                        switch (json_obj.session_role) {
+                        switch (json_obj.session_rol) {
 
                             case 'admin':
                                 location.reload();

@@ -1,0 +1,64 @@
+
+    {% extends "base-document.twig" %}
+    {% block content %}
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header card-header-primary">
+                                <div class="row align-items-center">
+                                    <div class="col-8">
+                                        <h4 class="card-title ">Lista de Fotos</h4>
+                                    </div>
+                                    <div class="col-4 text-right">
+                                        <a href="{{general.full_web_url}}galeria/create/"><button type="button" class="btn btn-info">Crear</button></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-shopping table-hover">
+                                        <thead class="text-primary">
+                                            <tr>
+                                                <th>Imagen</th>
+                                                <th>Nombre</th>
+                                                <th>Acciones</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            {% for galeria in data_galeria %}
+                                                <tr class="js-galerias-tr">
+                                                    <td>
+                                                        <div class="img-container">
+                                                            <img src="{{ general.full_images_url }}/galery/{{ galeria.imagen }}" class="img-thumbnail" rel="nofollow" alt="Foto">
+                                                        </div>
+                                                    </td>
+                                                    <td>{{ galeria.nombre }}</td>
+                                                    <td class="td-actions text-left">
+
+                                                        {# Deletar #}
+                                                        <a href="#">
+                                                            <button type="button" rel="tooltip" title="" class="btn btn-danger btn-link btn-sm js-galeria-btn-delete" data-original-title="Remover" data-id="{{ galeria.id_galeria }}">
+                                                                <i class="material-icons">delete</i>
+                                                                <div class="ripple-container"></div>
+                                                            </button>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+
+    {% block footer_scripts %}
+        <script type="text/javascript" src="{{ general.full_assets_url }}js/admin/galeriaCrud.js"></script>
+    {% endblock %}

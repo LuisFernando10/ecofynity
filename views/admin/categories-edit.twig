@@ -1,0 +1,76 @@
+
+{% extends "base-document.twig" %}
+    {% block content %}
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="offset-md-2 col-md-8">
+                        <div class="card">
+                            <div class="card-header card-header-primary">
+                                <div class="row align-items-center">
+                                    <div class="col-8">
+                                        <h5 class="card-title">Editar Categoría {{ data_categories_edit.nombre }}</h5>
+                                    </div>
+                                    <div class="col-4 text-right">
+                                        <a href="{{general.full_web_url}}categoria/"><button type="button" class="btn btn-info">Volver</button></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body js-categoria-frm-edit">
+
+                                {# Nome #}
+                                <div class="form-row mt-3">
+                                    <div class="offset-md-2 col-md-8">
+
+                                        {# Nome #}
+                                        <div class="form-row mt-3">
+                                            <div class="offset-md-2 col-md-8">
+                                                <div class="form-group bmd-form-group">
+                                                    <label>Nombre</label>
+                                                    <input type="text" value="{{ data_categories_edit.nombre }}" class="form-control js-categoria-nombre">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {# Imagem #}
+                                <div class="form-group form-file-upload form-file-simple mt-4">
+                                    <label>Imagen</label><br>
+                                    <div class="input-group">
+                                        <input type="file" class="inputFileHidden js-categoria-image">
+                                        <input type="text" class="form-control inputFileVisible" value="{{ data_categories_edit.image }}" readonly>
+
+                                        {# '<input-hidden>' para guardar temporalmente el nombre del archivo anteior y asi tenerlo de referencia para eliminar el mismo en caso de que se actualice #}
+                                        <input type="hidden" class="js-input-file-edit" value="{{ data_categories_edit.image }}">
+
+                                        <span class="input-group-btn js-icon-open-input-file">
+                                            <button type="button" class="btn btn-fab btn-round btn-primary">
+                                                <i class="material-icons">attach_file</i>
+                                            </button>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="form-row mt-4">
+
+                                    {# Imagem #}
+                                    <div class="form-group col-md-4">
+                                        <div class="img-container">
+                                            <img class="img-thumbnail" src="{{ general.full_images_url }}/galery/{{ data_categories_edit.imagen }}" rel="nofollow" alt="Categoria">
+                                        </div>
+                                    </div>
+
+                                </div>
+                                {# Botao de salvar #}
+                                <button type="submit" class="btn btn-primary pull-right btn-edit" data-id="{{ data_categories_edit.id_categoria }}">Guardar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+
+    {% block footer_scripts %}
+        <script type="text/javascript" src="{{ general.full_assets_url }}js/admin/categoriaCrud.js"></script>
+    {% endblock %}

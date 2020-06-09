@@ -1,0 +1,70 @@
+
+    {% extends "base-document.twig" %}
+    {% block content %}
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header card-header-primary">
+                                <div class="row align-items-center">
+                                    <div class="col-8">
+                                        <h4 class="card-title ">Lista de Categorías</h4>
+                                    </div>
+                                    <div class="col-4 text-right">
+                                        <a href="{{general.full_web_url}}categoria/create/"><button type="button" class="btn btn-info">Crear</button></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-shopping table-hover">
+                                        <thead class="text-primary">
+                                            <tr>
+                                                <th>Imagen</th>
+                                                <th>Nombre</th>
+                                                <th>Acciones</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            {% for categorie in data_categories %}
+                                                <tr class="js-categoria-tr">
+                                                    <td>
+                                                        <div class="img-container">
+                                                            <img src="{{ general.full_images_url }}/galery/{{ categorie.imagen }}" class="img-thumbnail" rel="nofollow" alt="Foto">
+                                                        </div>
+                                                    </td>
+                                                    <td>{{ categorie.nombre }}</td>
+                                                    <td class="td-actions text-left">
+                                                        {# Editar #}
+                                                        <a href="{{ general.full_web_url }}categoria/edit/{{ categorie.id_categoria }}/">
+                                                            <button type="button" rel="tooltip" title="" class="btn btn-primary btn-link btn-sm" data-original-title="Editar">
+                                                                <i class="material-icons">edit</i>
+                                                            </button>
+                                                        </a>
+
+                                                        {# Deletar #}
+                                                        <a href="#">
+                                                            <button type="button" rel="tooltip" title="" class="btn btn-danger btn-link btn-sm js-categoria-btn-delete" data-original-title="Remover" data-id="{{ categorie.id_categoria }}">
+                                                                <i class="material-icons">delete</i>
+                                                                <div class="ripple-container"></div>
+                                                            </button>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+
+    {% block footer_scripts %}
+        <script type="text/javascript" src="{{ general.full_assets_url }}js/admin/categoriaCrud.js"></script>
+    {% endblock %}

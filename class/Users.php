@@ -6,7 +6,7 @@
 
         class Users
         {
-            static function getAll($page = NULL, $pagination = NULL, $type = NULL, $id_usuario = NULL, $nome = NULL, $user = NULL, $senha = NULL, $rol = NULL, $estado = NULL) {
+            static function getAll($page = NULL, $pagination = NULL, $type = NULL, $id_usuario = NULL, $nome = NULL, $user = NULL, $pass = NULL, $rol = NULL, $estado = NULL) {
 
                 //Valor por defecto para 'page'
                 if (isset($page) && $page != NULL && is_numeric($page)){
@@ -65,11 +65,11 @@
                     unset($this_condition);
                 }
 
-                //Filtro por '$senha'
-                if ($senha !== NULL) {
+                //Filtro por '$pass'
+                if ($pass !== NULL) {
                     unset($this_condition);
-                    $this_condition = 'AND senha = "%s"';
-                    $this_condition = sprintf($this_condition, $senha);
+                    $this_condition = 'AND pass = "%s"';
+                    $this_condition = sprintf($this_condition, $pass);
 
                     $conditions .= $this_condition;
                     unset($this_condition);
@@ -102,9 +102,9 @@
                 else {
                     $sql_select = "
                         id_usuario,
-                        nome,
-                        user,
-                        senha,
+                        nombre,
+                        user ,
+                        pass,
                         rol,
                         estado
                     ";
@@ -116,12 +116,12 @@
                     SELECT 
                         $sql_select
                     FROM 
-                        usuarios
+                        usuario
                     WHERE
                         1+1=2
                         $conditions
                     ORDER BY 
-                        usuarios.user
+                        usuario.user
                     $sql_limit
                 ";
 
@@ -157,7 +157,7 @@
             /**
              * @Description: Método para validar que el usuario y la contraseña sean las correctas
              */
-            static function validateUserAccessData($user = NULL, $senha = NULL){
+            static function validateUserAccessData($user = NULL, $pass = NULL){
 
                 //Creamos variable de control
                 $valid = true;
@@ -170,7 +170,7 @@
                     $valid = false;
 
                 //Se valida que se envía una 'contraseña'
-                if(isset($senha) && $senha != NULL && $senha != ''){
+                if(isset($pass) && $pass != NULL && $pass != ''){
                     /* Se deja igual */
                 }
                 else
@@ -180,7 +180,7 @@
                 if($valid){
 
                     //Se encripta la contraseña
-                    $senha_secure = Security::passwordConstructor($senha);
+                    $pass_secure = Security::passwordConstructor($pass);
 
                     //Se consulta por el usuario y el password
                     $sql = "
@@ -188,19 +188,19 @@
                             id_usuario,
                             rol
                         FROM
-                            usuarios
+                            usuario
                         WHERE
                             user = '%s'
                         AND   
-                            senha = '%s'
+                            pass = '%s'
                         AND 
-                            estado = 'ativo'
+                            estado = 'activo'
                         LIMIT 0,1
                     ";
 
                     $sql = sprintf($sql,
                         $user,
-                        $senha_secure
+                        $pass_secure
                     );
 
                     //Ejecutamos el query
