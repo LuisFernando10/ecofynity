@@ -29,8 +29,8 @@
         $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT, array("options" => array("default" => "")));
 
         //Obtemos os dados do BD necessários nas visualizações gerais pra tratamento
-        $data_configurations = Configurations::getAll(NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-        $data_phones = json_decode($data_configurations[0]['telefones'], TRUE);
+        //$data_configurations = Configurations::getAll(NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+        //$data_phones = json_decode($data_configurations[0]['telefones'], TRUE);
 
         //Definimos las variables generales a utilizar en las vistas 'Twig'
         $generalParam = array(
@@ -38,8 +38,8 @@
             "full_assets_url" => constant('ASSETS_WEB_URL'),
             "full_images_url" => constant('IMAGES_WEB_URL'),
             "class_param" => $class,
-            "data_configuration" => $data_configurations[0],
-            "data_phones" => $data_phones
+            //"data_configuration" => $data_configurations[0],
+            //"data_phones" => $data_phones
         );
 
         //Evaluamos cada uno de los controladores para permitir el acceso a las respectivas vistas
@@ -48,50 +48,50 @@
             case 'home':
 
                 //Obtenemos los diferentes datos de la BD
-                $data_opinions = Opinions::getAll(null, null, null, null, null, null, null, null);
+                //$data_opinions = Opinions::getAll(null, null, null, null, null, null, null, null);
 
                 //Renderizamos la vista
                 $twig->display('home.twig', array(
                     'general' => $generalParam,
-                    'data_opinions' => $data_opinions
+                    //'data_opinions' => $data_opinions
                 ));
                 break;
 
-            case 'about':
+            //case 'about':
+            //
+            //    //Renderizamos la vista
+            //    $twig->display('about-us.twig', array(
+            //        'general' => $generalParam
+            //    ));
+            //    break;
 
-                //Renderizamos la vista
-                $twig->display('about-us.twig', array(
-                    'general' => $generalParam
-                ));
-                break;
+            //case 'contact':
+            //
+            //    //Renderizamos la vista
+            //    $twig->display('contact.twig', array(
+            //        'general' => $generalParam
+            //    ));
+            //    break;
 
-            case 'contact':
+            //case 'rooms':
+            //
+            //    //Nós obtemos os dados relacionados aos quartos
+            //    $data_rooms = Rooms::getAll(NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'disponivel',NULL);
+            //
+            //    //Renderizamos la vista
+            //    $twig->display('rooms.twig', array(
+            //        'general' => $generalParam,
+            //        'data_rooms' => $data_rooms
+            //    ));
+            //    break;
 
-                //Renderizamos la vista
-                $twig->display('contact.twig', array(
-                    'general' => $generalParam
-                ));
-                break;
-
-            case 'rooms':
-
-                //Nós obtemos os dados relacionados aos quartos
-                $data_rooms = Rooms::getAll(NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'disponivel',NULL);
-
-                //Renderizamos la vista
-                $twig->display('rooms.twig', array(
-                    'general' => $generalParam,
-                    'data_rooms' => $data_rooms
-                ));
-                break;
-
-            case 'bookings':
-
-                //Renderizamos la vista
-                $twig->display('bookings.twig', array(
-                    'general' => $generalParam
-                ));
-                break;
+            //case 'bookings':
+                //
+            //    //Renderizamos la vista
+            //    $twig->display('bookings.twig', array(
+            //        'general' => $generalParam
+            //    ));
+            //    break;
 
             case 'admin':
 
