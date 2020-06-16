@@ -15,15 +15,9 @@
             session_start();
 
         //Se hacen las verificaciones de seguridad
-        if (
-            isset($_SESSION['session_status']) &&
-            $_SESSION['session_status'] != null &&
-            $_SESSION['session_status'] == 1 &&
-            isset($_SESSION['session_role']) &&
-            $_SESSION['session_role'] != null &&
-            ($_SESSION['session_role'] == 'admin' ||
-                $_SESSION['session_role'] == 'user')
-        ){
+        if (isset($_SESSION['session_status']) && $_SESSION['session_status'] != null && $_SESSION['session_status'] == 1
+            && isset($_SESSION['session_rol']) && $_SESSION['session_rol'] != null
+            && ($_SESSION['session_rol'] == 'admin' || $_SESSION['session_rol'] == 'user')){
             /* Esta toodo OK */
         }
         else{

@@ -31,7 +31,7 @@
     $user_id = $_SESSION['user_id'];
 
     //Obtenemos los datos desde la BD correspondiente al rol 'administrador'
-    $data_user = Users::getAll(NULL, NULL, NULL, $user_id, NULL, NULL, NULL, '1','ativo');
+    //$data_user = Users::getAll(NULL, NULL, NULL, $user_id, NULL, NULL, NULL, '1','ativo');
 
     //Obtenemos los datos GET que corresponden a la estructura general de la plataforma (Class-Method-Id) y paginaciones
     $class = filter_input(INPUT_GET, 'class', FILTER_SANITIZE_STRING, array("options" => array("default" => "usuarios")));
@@ -46,7 +46,7 @@
         'full_assets_url' => constant('ASSETS_WEB_URL'),
         'full_images_url' => constant('IMAGES_WEB_URL'),
         'user_id' => $user_id,
-        'data_user' => $data_user[0],
+        //'data_user' => $data_user[0],
         'class_url' => $class
     );
 
@@ -67,9 +67,9 @@
         case 'producto':
 
             //Nos obtemos os dados que precisaremos renderizar nas vistas
-            $data_producto = Producto::getAll(NULL, NULL, NULL, NULL, NULL, NULL,NULL, NULL, NULL, NULL, NULL);
-            $data_categories = Categoria::getAll(NULL, NULL, NULL, NULL, NULL, NULL,NULL, NULL, NULL, NULL, NULL);
-            $data_producto_edit = Producto::getAll(NULL, NULL, NULL, $id, NULL, NULL,NULL, NULL, NULL, NULL, NULL);
+            $data_producto = Producto::getAll(NULL, NULL, NULL, NULL, NULL, NULL,NULL, NULL, NULL, NULL);
+            $data_categories = Categoria::getAll(NULL, NULL, NULL, NULL, NULL);
+            $data_producto_edit = Producto::getAll(NULL, NULL, NULL, $id, NULL, NULL,NULL, NULL, NULL, NULL);
             //Nos validamos cada uma das clases
             if ($action == 'create')
                 $twig->display('product-create.twig',array(

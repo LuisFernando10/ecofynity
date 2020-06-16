@@ -24,13 +24,11 @@
         if(session_status() == PHP_SESSION_NONE)
             @session_start();
 
-
         //Definimos el 'rol' del usuario
-        if(isset($_SESSION['session_role']) && $_SESSION['session_role'] != null && $_SESSION['session_role'] != '')
-            $user_role = $_SESSION['session_role'];
+        if(isset($_SESSION['session_rol']) && $_SESSION['session_rol'] != null && $_SESSION['session_rol'] != '')
+            $user_role = $_SESSION['session_rol'];
         else
             $user_role = "N/A";
-
 
         //Validamos los roles establecidos por la sesión, y direccionamos al respectivo controlador
         switch ($user_role){

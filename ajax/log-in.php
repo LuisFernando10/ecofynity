@@ -9,7 +9,6 @@
         //Importamos los archivos necesarios para el tratamiento de los datos
         require_once(dirname(__FILE__).'/../config-import.php');
 
-
         //Obtenemos el usuario y la contraseña
         $username = filter_input(INPUT_POST, "user_name", FILTER_SANITIZE_STRING);
         $password = filter_input(INPUT_POST, "user_password", FILTER_SANITIZE_STRING);
@@ -19,6 +18,7 @@
 
         //Validamos si la consulta retornó datos
         if ($result_validation_user_password != false){
+
             //$token=ValidateData::generateRandomToken();
 
             //Validamos y definimos el rol que tendrá el usuario
