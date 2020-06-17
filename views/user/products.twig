@@ -1,133 +1,52 @@
 
     <section class="site-section" id="section-portfolio">
         <div class="container">
+
+            {# Tútulo #}
             <div class="row">
                 <div class="section-heading text-center col-md-12">
-                    <h2>Nuestro <strong>Portafolio</strong></h2>
+                    <h2>Nuestros <strong>Productos</strong></h2>
                 </div>
             </div>
 
+            {# Categorías #}
             <div class="filters">
-                <ul>
-                    <li class="active" data-filter="*">All</li>
-                    <li data-filter=".packaging">Packaging</li>
-                    <li data-filter=".mockup">Mockup</li>
-                    <li data-filter=".typography">Typography</li>
-                    <li data-filter=".photography">Photography</li>
+                <ul class="js-ul-categories">
+                    <li class="active" data-number="*" data-filter="*">All</li>
+                    {# Recorremos las categorías y renderizamos un en un 'li' por cada una #}
+                    {% for categories in data_categories %}
+                        {# Reemplazamos los espacios en blanco (' ') del 'data-filter', por un guión bajo ('_') #}
+                        <li data-filter=".{{ categories.nombre|replace({' ': '_'}) }}" data-number="{{ categories.id_categoria }}">{{ categories.nombre }}</li>
+                    {% endfor %}
                 </ul>
             </div>
 
+            {# Productos #}
             <div class="filters-content">
                 <div class="row grid">
-
-                    <div class="single-portfolio col-sm-4 all mockup">
-                        <div class="relative">
-                            <div class="thumb">
-                                <div class="overlay overlay-bg"></div>
-                                <img class="image img-fluid" src="{{ general.full_images_url }}p1.jpg" alt="">
-                            </div>
-                            <a href="{{ general.full_images_url }}p1.jpg" class="img-pop-up">
-                                <div class="middle">
-                                    <div class="text align-self-center d-flex"><img src="{{ general.full_images_url }}preview.png" alt=""></div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="p-inner">
-                            <h4>Square Box Mockup</h4>
-                            <div class="cat">Mockup</div>
-                        </div>
-                    </div>
-
-                    <div class="single-portfolio col-sm-4 all mockup">
-                        <div class="relative">
-                            <div class="thumb">
-                                <div class="overlay overlay-bg"></div>
-                                <img class="image img-fluid" src="{{ general.full_images_url }}p2.jpg" alt="">
-                            </div>
-                            <a href="{{ general.full_images_url }}p2.jpg" class="img-pop-up">
-                                <div class="middle">
-                                    <div class="text align-self-center d-flex"><img src="{{ general.full_images_url }}preview.png" alt=""></div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="p-inner">
-                            <h4>Product Box Package Mockup</h4>
-                            <div class="cat">Mockup</div>
-                        </div>
-                    </div>
-
-                    <div class="single-portfolio col-sm-4 all packaging">
-                        <div class="relative">
-                            <div class="thumb">
-                                <div class="overlay overlay-bg"></div>
-                                <img class="image img-fluid" src="{{ general.full_images_url }}p3.jpg" alt="">
-                            </div>
-                            <a href="{{ general.full_images_url }}p3.jpg" class="img-pop-up">
-                                <div class="middle">
-                                    <div class="text align-self-center d-flex"><img src="{{ general.full_images_url }}preview.png" alt=""></div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="p-inner">
-                            <h4>Creative Package Design</h4>
-                            <div class="cat">Packaging</div>
-                        </div>
-                    </div>
-
-                    <div class="single-portfolio col-sm-4 all packaging">
-                        <div class="relative">
-                            <div class="thumb">
-                                <div class="overlay overlay-bg"></div>
-                                <img class="image img-fluid" src="{{ general.full_images_url }}p4.jpg" alt="">
-                            </div>
-                            <a href="{{ general.full_images_url }}p4.jpg" class="img-pop-up">
-                                <div class="middle">
-                                    <div class="text align-self-center d-flex"><img src="{{ general.full_images_url }}preview.png" alt=""></div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="p-inner">
-                            <h4>Packaging Brand</h4>
-                            <div class="cat">Packaging</div>
-                        </div>
-                    </div>
-
-                    <div class="single-portfolio col-sm-4 all typography">
-                        <div class="relative">
-                            <div class="thumb">
-                                <div class="overlay overlay-bg"></div>
-                                <img class="image img-fluid" src="{{ general.full_images_url }}p5.jpg" alt="">
-                            </div>
-                            <a href="{{ general.full_images_url }}p5.jpg" class="img-pop-up">
-                                <div class="middle">
-                                    <div class="text align-self-center d-flex"><img src="{{ general.full_images_url }}preview.png" alt=""></div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="p-inner">
-                            <h4>Isometric 3D Extrusion</h4>
-                            <div class="cat">Typography</div>
-                        </div>
-                    </div>
-
-                    <div class="single-portfolio col-sm-4 all photography">
-                        <div class="relative">
-                            <div class="thumb">
-                                <div class="overlay overlay-bg"></div>
-                                <img class="image img-fluid" src="{{ general.full_images_url }}p6.jpg" alt="">
-                            </div>
-                            <a href="{{ general.full_images_url }}p6.jpg" class="img-pop-up">
-                                <div class="middle">
-                                    <div class="text align-self-center d-flex"><img src="{{ general.full_images_url }}preview.png" alt=""></div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="p-inner">
-                            <h4>White Space Photography</h4>
-                            <div class="cat">photography</div>
-                        </div>
-                    </div>
+                    {# Contenido cargado dinámicamente por JS #}
                 </div>
             </div>
         </div>
     </section>
+
+    {# Sección de contenedores Ocultos #}
+    <div class="js-hide-html-container-products">
+        <div class="single-portfolio col-sm-4 all mockup">
+            <div class="relative">
+                <div class="thumb">
+                    <div class="overlay overlay-bg"></div>
+                    <img class="image img-fluid" src="{{ general.full_images_url }}p1.jpg" alt="">
+                </div>
+                <a href="{{ general.full_images_url }}p1.jpg" class="img-pop-up">
+                    <div class="middle">
+                        <div class="text align-self-center d-flex"><img src="{{ general.full_images_url }}preview.png" alt=""></div>
+                    </div>
+                </a>
+            </div>
+            <div class="p-inner">
+                <h4>Square Box Mockup</h4>
+                <div class="cat">Mockup</div>
+            </div>
+        </div>
+    </div>

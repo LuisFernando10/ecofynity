@@ -47,12 +47,16 @@
 
             case 'home':
 
+                //Obtenemos los datos relacionados a las 'Categorías'
+                $data_categories = Category::getAll(NULL,NULL,NULL,NULL,NULL);
+
                 //Obtenemos los diferentes datos de la BD
                 //$data_opinions = Opinions::getAll(null, null, null, null, null, null, null, null);
 
                 //Renderizamos la vista
                 $twig->display('home.twig', array(
                     'general' => $generalParam,
+                    'data_categories' => $data_categories
                     //'data_opinions' => $data_opinions
                 ));
                 break;

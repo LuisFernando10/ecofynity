@@ -7,7 +7,7 @@
          * @Date: 03-mar-2020
          */
 
-        class Categoria
+        class Category
         {
             /**
              * @Description: Metodo que obtem os dados correspondentes aos 'Quartos'
@@ -68,10 +68,10 @@
                 }
                 else {
                     $sql_select = "
-                            categoria.id_categoria,
-                            categoria.nombre,
-                            categoria.imagen
-                        ";
+                        categoria.id_categoria,
+                        categoria.nombre,
+                        categoria.imagen
+                    ";
 
                     $sql_limit = "LIMIT $limit_start, $pagination";
                 }
@@ -120,7 +120,7 @@
             static function insertCategoria($nombre = NULL, $file_proccess = NULL){
 
                 // ** Proceso para validar si existe un cuarto con el mismo nombre **
-                $existing_categoria = Categoria::getAll(NULL,NULL,NULL,NULL, $nombre);
+                $existing_categoria = Category::getAll(NULL,NULL,NULL,NULL, $nombre);
 
                 if ($existing_categoria != NULL)
                     return 'existing_categoria';
@@ -160,7 +160,7 @@
             static function updateCategoria($id_categoria = NULL, $nombre = NULL,$file_proccess = NULL){
 
                 // ** Proceso para validar si existe un cuarto con el mismo nombre **
-                $existing_categoria = Categoria::getAll(NULL,NULL,NULL,NULL, $nombre);
+                $existing_categoria = Category::getAll(NULL,NULL,NULL,NULL, $nombre);
 
                 //Variavel de control pra controlar a existencia do mesmo nombre em outra tabela
                 $existing_control = true;

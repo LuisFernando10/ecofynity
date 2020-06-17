@@ -20,7 +20,7 @@
         //Ejecutamos Ajax
         $.ajax({
             type: 'POST',
-            url: FULL_WEB_URL+'ajax/admin/categoria-crud.php',
+            url: FULL_WEB_URL+'ajax/admin/category-crud.php',
             dataType: 'json',
             cache: false,
             contentType: false,
@@ -66,7 +66,7 @@
         //Ejecutamos Ajax
         $.ajax({
             type: 'POST',
-            url: FULL_WEB_URL+'ajax/admin/categoria-crud.php',
+            url: FULL_WEB_URL+'ajax/admin/category-crud.php',
             dataType: 'json',
             cache: false,
             contentType: false,
@@ -100,7 +100,7 @@
         //Executamos a peticao  Ajax
         $.ajax({
             type: 'POST',
-            url: FULL_WEB_URL+'ajax/admin/categoria-crud.php',
+            url: FULL_WEB_URL+'ajax/admin/category-crud.php',
             data: {
                 categoria_id: id_categoria,
                 action: 'DELETE'

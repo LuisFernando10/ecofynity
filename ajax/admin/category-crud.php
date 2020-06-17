@@ -32,7 +32,7 @@
             if ($file_proccess != false) {
 
                 //Realizamos la inserción de los campos de la plantilla en la BD
-                $id_categoria = Categoria::insertCategoria($categoria_name, $file_proccess);
+                $id_categoria = Category::insertCategoria($categoria_name, $file_proccess);
 
                 //Validamos si la inserción tuvo éxito o no
                 if ($id_categoria != null && is_numeric($id_categoria))
@@ -78,7 +78,7 @@
             //Creamos variable para guardar el array con información del archivo ó la vaciamos
             $file_document = empty($producto_file) ? '' : $producto_file;
 
-            $data_producto = Categoria::getAll(NULL, NULL, NULL, $categoria_id);
+            $data_producto = Category::getAll(NULL, NULL, NULL, $categoria_id);
             $previous_image = $data_producto[0]['imagen'];
 
             //Deletamos o arquivo no servidor antes de atualizar pelo novo arquivo
@@ -97,7 +97,7 @@
                 if ($file_proccess != false) {
 
                     //Realizamos la inserción de los campos de la plantilla en la BD
-                    $update_categoria = Categoria::updateCategoria($categoria_id, $categoria_name,$file_proccess);
+                    $update_categoria = Category::updateCategoria($categoria_id, $categoria_name,$file_proccess);
 
                     //Validamos si la inserción tuvo éxito o no
                     if ($update_categoria != false)
@@ -123,7 +123,7 @@
         }
         else{
             //Realizamos la inserción de los campos de la plantilla en la BD
-            $update_categoria = Categoria::updateCategoria($categoria_id, $categoria_name,NULL);
+            $update_categoria = Category::updateCategoria($categoria_id, $categoria_name,NULL);
 
             //Validamos si la inserción tuvo éxito o no
             if ($update_categoria != false)
@@ -144,7 +144,7 @@
     elseif ($action == 'DELETE'){
 
         //Nos executamos o método que deleta o categoria e o arquivo do servidor
-        $delete_categoria = Categoria::deleteCategoria($categoria_id);
+        $delete_categoria = Category::deleteCategoria($categoria_id);
 
         //Nón validamos o sucesso da operacao
         if ($delete_categoria){

@@ -22,7 +22,7 @@ $('.btn-save').on('click', function () {
     //Ejecutamos Ajax
     $.ajax({
         type: 'POST',
-        url: FULL_WEB_URL+'ajax/admin/galeria-crud.php',
+        url: FULL_WEB_URL+'ajax/admin/galery-crud.php',
         dataType: 'json',
         cache: false,
         contentType: false,
@@ -69,7 +69,7 @@ $('.btn-edit').on('click', function () {
     //Ejecutamos Ajax
     $.ajax({
         type: 'POST',
-        url: FULL_WEB_URL+'ajax/admin/galeria-crud.php',
+        url: FULL_WEB_URL+'ajax/admin/galery-crud.php',
         dataType: 'json',
         cache: false,
         contentType: false,
@@ -102,7 +102,7 @@ $('.js-galeria-btn-delete').on('click', function () {
     //Executamos a peticao  Ajax
     $.ajax({
         type: 'POST',
-        url: FULL_WEB_URL+'ajax/admin/galeria-crud.php',
+        url: FULL_WEB_URL+'ajax/admin/galery-crud.php',
         data: {
             galeria_id: id_galeria,
             action: 'DELETE'

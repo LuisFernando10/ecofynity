@@ -33,7 +33,7 @@ $('.btn-save').on('click', function () {
     //Ejecutamos Ajax
     $.ajax({
         type: 'POST',
-        url: FULL_WEB_URL+'ajax/admin/producto-crud.php',
+        url: FULL_WEB_URL+'ajax/admin/product-crud.php',
         dataType: 'json',
         cache: false,
         contentType: false,
@@ -98,7 +98,7 @@ $('.btn-edit').on('click', function () {
     //Ejecutamos Ajax
     $.ajax({
         type: 'POST',
-        url: FULL_WEB_URL+'ajax/admin/producto-crud.php',
+        url: FULL_WEB_URL+'ajax/admin/product-crud.php',
         dataType: 'json',
         cache: false,
         contentType: false,
@@ -132,7 +132,7 @@ $('.js-delete').on('click', function () {
     //Executamos a peticao  Ajax
     $.ajax({
         type: 'POST',
-        url: FULL_WEB_URL+'ajax/admin/producto-crud.php',
+        url: FULL_WEB_URL+'ajax/admin/product-crud.php',
         data: {
             producto_id: id_room,
             action: 'DELETE'

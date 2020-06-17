@@ -68,7 +68,7 @@
 
             //Nos obtemos os dados que precisaremos renderizar nas vistas
             $data_producto = Producto::getAll(NULL, NULL, NULL, NULL, NULL, NULL,NULL, NULL, NULL, NULL);
-            $data_categories = Categoria::getAll(NULL, NULL, NULL, NULL, NULL);
+            $data_categories = Category::getAll(NULL, NULL, NULL, NULL, NULL);
             $data_producto_edit = Producto::getAll(NULL, NULL, NULL, $id, NULL, NULL,NULL, NULL, NULL, NULL);
             //Nos validamos cada uma das clases
             if ($action == 'create')
@@ -104,8 +104,8 @@
         case 'categoria':
 
             //Nos obtemos os dados que precisaremos renderizar nas vistas
-            $data_categories = Categoria::getAll(NULL, NULL, NULL, NULL, NULL, NULL,NULL, NULL, NULL, NULL, NULL);
-            $data_categories_edit = Categoria::getAll(NULL, NULL, NULL, $id, NULL, NULL,NULL, NULL, NULL, NULL, NULL);
+            $data_categories = Category::getAll(NULL, NULL, NULL, NULL, NULL, NULL,NULL, NULL, NULL, NULL, NULL);
+            $data_categories_edit = Category::getAll(NULL, NULL, NULL, $id, NULL, NULL,NULL, NULL, NULL, NULL, NULL);
             //Nos validamos cada uma das clases
             if ($action == 'create')
                 $twig->display('categories-create.twig',array(
