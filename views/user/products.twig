@@ -31,8 +31,8 @@
     </section>
 
     {# Sección de contenedores Ocultos #}
-    <div class="js-hide-html-container-products">
-        <div class="single-portfolio col-sm-4 all mockup">
+    <div class="css-element-hide js-hide-html-container-products">
+        <div class="single-portfolio col-sm-4 all js-product-category">
             <div class="relative">
                 <div class="thumb">
                     <div class="overlay overlay-bg"></div>
@@ -40,13 +40,15 @@
                 </div>
                 <a href="{{ general.full_images_url }}p1.jpg" class="img-pop-up">
                     <div class="middle">
-                        <div class="text align-self-center d-flex"><img src="{{ general.full_images_url }}preview.png" alt=""></div>
+                        <div class="text align-self-center d-flex">
+                            <img src="{{ general.full_images_url }}preview.png" alt="">
+                        </div>
                     </div>
                 </a>
             </div>
             <div class="p-inner">
-                <h4>Square Box Mockup</h4>
-                <div class="cat">Mockup</div>
+                <h4 class="js-h4-product-name">{# Contenido cargado dinámicamente por JS #}</h4>
+                {#<div class="cat">Mockup</div>#}
             </div>
         </div>
     </div>

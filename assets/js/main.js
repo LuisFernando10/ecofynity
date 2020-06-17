@@ -271,7 +271,7 @@
 
         $.ajax({
             type: 'POST',
-            url: FULL_WEB_URL+'ajax/user/producto.php',
+            url: FULL_WEB_URL+'ajax/user/products.php',
             dataType: 'json',
             data: {
                 action:'SEARCH_PRODUCTO',
@@ -306,7 +306,7 @@
 
         $.ajax({
             type: 'POST',
-            url: FULL_WEB_URL+'ajax/user/producto.php',
+            url: FULL_WEB_URL+'ajax/user/products.php',
             dataType: 'json',
             data: {
                 action:'SEARCH_GALERIA',

@@ -12,7 +12,7 @@
             /**
              * @Description: Metodo que obtem os dados correspondentes aos 'Quartos'
              */
-            static function getAll($page = NULL, $pagination = NULL, $type = NULL, $id_producto = NULL, $nombre = NULL, $descripcion = NULL, $imagen = NULL, $precio = NULL,  $estado = NULL, $descuento = NULL) {
+            static function getAll($page = NULL, $pagination = NULL, $type = NULL, $id_producto = NULL, $nombre = NULL, $descripcion = NULL, $imagen = NULL, $precio = NULL,  $estado = NULL, $descuento = NULL, $id_categoria = NULL) {
 
                 //Valor por defecto para 'page'
                 if (isset($page) && $page != NULL && is_numeric($page)){
@@ -91,8 +91,6 @@
                     unset($this_condition);
                 }
 
-
-
                 //Filtro por '$estado'
                 if ($estado !== NULL) {
                     unset($this_condition);
@@ -103,11 +101,21 @@
                     unset($this_condition);
                 }
 
-                //Filtro por '$order_control'
+                //Filtro por '$descuento'
                 if ($descuento !== NULL) {
                     unset($this_condition);
                     $this_condition = 'AND productos.descuento = "%s"';
                     $this_condition = sprintf($this_condition, $descuento);
+
+                    $conditions .= $this_condition;
+                    unset($this_condition);
+                }
+
+                //Filtro por '$id_categoria'
+                if ($id_categoria !== NULL) {
+                    unset($this_condition);
+                    $this_condition = 'AND productos.id_categoria = "%s"';
+                    $this_condition = sprintf($this_condition, $id_categoria);
 
                     $conditions .= $this_condition;
                     unset($this_condition);
@@ -140,7 +148,7 @@
                         $sql_select
                     FROM 
                         productos
-                    inner join
+                    INNER JOIN
                     categoria on productos.id_categoria = categoria.id_categoria 
                     WHERE
                         1+1=2
