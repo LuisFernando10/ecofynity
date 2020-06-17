@@ -63,10 +63,7 @@
         }
 
     }
-
     elseif ($action == 'UPDATE'){
-
-
 
         //Nós validamos se o array ($_FILES) está vacío para nao ter problemas con o (Notice do PHP)
         if (empty($_FILES))
@@ -80,16 +77,19 @@
 
             //Creamos variable para guardar el array con información del archivo ó la vaciamos
             $file_document = empty($producto_file) ? '' : $producto_file;
-            $data_producto = Categoria::getAll(NULL, NULL, NULL, $categoria_id);
-            $imagenn_anterior = $data_producto[0]['imagen'];
-            //Deletamos o arquivo no servidor antes de atualizar pelo novo arquivo
 
+            $data_producto = Categoria::getAll(NULL, NULL, NULL, $categoria_id);
+            $previous_image = $data_producto[0]['imagen'];
+
+            //Deletamos o arquivo no servidor antes de atualizar pelo novo arquivo
             $delete_file = true;
-            if ($imagenn_anterior!='')
-                $delete_file = Files::deleteFileServer($imagenn_anterior);
+
+            if ($previous_image!='')
+                $delete_file = Files::deleteFileServer($previous_image);
 
             //Nos validamos se realmente se deleteu o arquivo
             if ($delete_file == true) {
+
                 //Porcessamos o arquivo para mover ele ao caminho estebelecida
                 $file_proccess = Files::uploadFile($file_document);
 
@@ -109,7 +109,7 @@
                     elseif ($update_categoria == 'existing_categoria')
                         $response = array(
                             'status' => '500',
-                            'message' => 'Nombre Categría existe',
+                            'message' => 'El nombre de esta Categoría no está disponible.',
                             'id_categoria' => $update_categoria
                         );
                     else
@@ -120,7 +120,8 @@
                         );
                 }
             }
-        }else{
+        }
+        else{
             //Realizamos la inserción de los campos de la plantilla en la BD
             $update_categoria = Categoria::updateCategoria($categoria_id, $categoria_name,NULL);
 
@@ -141,7 +142,6 @@
 
     }
     elseif ($action == 'DELETE'){
-
 
         //Nos executamos o método que deleta o categoria e o arquivo do servidor
         $delete_categoria = Categoria::deleteCategoria($categoria_id);

@@ -29,7 +29,7 @@
                                         <tbody>
 
                                             {% for categorie in data_categories %}
-                                                <tr class="js-categoria-tr">
+                                                <tr class="js-categorias-tr">
                                                     <td>
                                                         <div class="img-container">
                                                             <img src="{{ general.full_images_url }}/galery/{{ categorie.imagen }}" class="img-thumbnail" rel="nofollow" alt="Foto">
@@ -46,7 +46,7 @@
 
                                                         {# Deletar #}
                                                         <a href="#">
-                                                            <button type="button" rel="tooltip" title="" class="btn btn-danger btn-link btn-sm js-categoria-btn-delete" data-original-title="Remover" data-id="{{ categorie.id_categoria }}">
+                                                            <button type="button" rel="tooltip" title="" class="btn btn-danger btn-link btn-sm js-categoria-btn-delete" data-original-title="Eliminar" data-id="{{ categorie.id_categoria }}">
                                                                 <i class="material-icons">delete</i>
                                                                 <div class="ripple-container"></div>
                                                             </button>

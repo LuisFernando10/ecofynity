@@ -1,141 +1,139 @@
 
-$('.btn-save').on('click', function () {
+    $('.btn-save').on('click', function () {
 
-    //Obtenemos los elementos
-    let element_name = $('.js-categoria-nombre');
-    let element_image = $('.js-categoria-image');
+        //Obtenemos los elementos
+        let element_name = $('.js-categoria-nombre');
+        let element_image = $('.js-categoria-image');
 
-    //Obtenemos los valores
-    let value_name = element_name.val();
-    let value_image = element_image.prop('files')[0];
+        //Obtenemos los valores
+        let value_name = element_name.val();
+        let value_image = element_image.prop('files')[0];
 
+        //Creamos objeto para recopilar los datos que enviaremos al Ajax
+        let form_data = new FormData();
 
-    //Creamos objeto para recopilar los datos que enviaremos al Ajax
-    let form_data = new FormData();
+        //Adicionamos las llaves y los valores que conformarán el FormData
+        form_data.append('categoria_name', value_name);
+        form_data.append('action', 'INSERT');
+        form_data.append('categoria_file', value_image);
 
-    //Adicionamos las llaves y los valores que conformarán el FormData
-    form_data.append('categoria_name', value_name);
+        //Ejecutamos Ajax
+        $.ajax({
+            type: 'POST',
+            url: FULL_WEB_URL+'ajax/admin/categoria-crud.php',
+            dataType: 'json',
+            cache: false,
+            contentType: false,
+            processData: false,
+            data: form_data,
+            success: function (response) {
 
-    form_data.append('action', 'INSERT');
-    form_data.append('categoria_file', value_image);
+                //Nos validamos o estado da petiçao
+                if (response.status === '200'){
 
-    //Ejecutamos Ajax
-    $.ajax({
-        type: 'POST',
-        url: FULL_WEB_URL+'ajax/admin/categoria-crud.php',
-        dataType: 'json',
-        cache: false,
-        contentType: false,
-        processData: false,
-        data: form_data,
-        success: function (response) {
+                    //Mensagem de sucesso
+                    notify_success_notification(response.message);
 
-            //Nos validamos o estado da petiçao
-            if (response.status === '200'){
-
-                //Mensagem de sucesso
-                notify_success_notification(response.message);
-
-                //Direitonamos pra a pagina do list
-                $(location).attr('href', FULL_WEB_URL + 'categoria/')
+                    //Direitonamos pra a pagina do list
+                    $(location).attr('href', FULL_WEB_URL + 'categoria/')
+                }
+                else
+                    notify_error_notification(response.message);
             }
-            else
-                notify_error_notification(response.message);
-        }
+        });
     });
-});
 
-$('.btn-edit').on('click', function () {
+    $('.btn-edit').on('click', function () {
 
-    //Obtenemos los elementos
-    let element_frm_parent = $('.js-categoria-frm-edit');
-    let element_name = element_frm_parent.find('.js-categoria-nombre');
-    let element_image = $('.js-categoria-image');
+        //Obtenemos los elementos
+        let element_frm_parent = $('.js-categoria-frm-edit');
+        let element_name = element_frm_parent.find('.js-categoria-nombre');
+        let element_image = $('.js-categoria-image');
 
+        //Obtenemos los valores
+        let value_name = element_name.val();
+        let value_image = element_image.prop('files')[0];
 
-    //Obtenemos los valores
-    let value_name = element_name.val();
-    let value_image = element_image.prop('files')[0];
+        //Creamos objeto para recopilar los datos que enviaremos al Ajax
+        let form_data = new FormData();
 
-    //Creamos objeto para recopilar los datos que enviaremos al Ajax
-    let form_data = new FormData();
-    form_data.append('producto_file', value_image);
-    //Adicionamos las llaves y los valores que conformarán el FormData
-    form_data.append('categoria_id', $(this).attr('data-id'));
-    form_data.append('categoria_name', value_name);
+        //Adicionamos las llaves y los valores que conformarán el FormData
+        form_data.append('producto_file', value_image);
+        form_data.append('categoria_id', $(this).attr('data-id'));
+        form_data.append('categoria_name', value_name);
+        form_data.append('action', 'UPDATE');
 
-    form_data.append('action', 'UPDATE');
+        //Ejecutamos Ajax
+        $.ajax({
+            type: 'POST',
+            url: FULL_WEB_URL+'ajax/admin/categoria-crud.php',
+            dataType: 'json',
+            cache: false,
+            contentType: false,
+            processData: false,
+            data: form_data,
+            success: function (response) {
 
-    //Ejecutamos Ajax
-    $.ajax({
-        type: 'POST',
-        url: FULL_WEB_URL+'ajax/admin/categoria-crud.php',
-        dataType: 'json',
-        cache: false,
-        contentType: false,
-        processData: false,
-        data: form_data,
-        success: function (response) {
+                //Nos validamos o estado da petiçao
+                if (response.status === '200'){
 
-            //Nos validamos o estado da petiçao
-            if (response.status === '200'){
+                    //Mensagem de sucesso
+                    notify_success_notification(response.message);
 
-                //Mensagem de sucesso
-                notify_success_notification(response.message);
-
-                //Direitonamos pra a pagina do list
-                $(location).attr('href', FULL_WEB_URL + 'categoria/');
+                    //Direitonamos pra a pagina do list
+                    $(location).attr('href', FULL_WEB_URL + 'categoria/');
+                }
+                else
+                    notify_error_notification(response.message);
             }
-            else
-                notify_error_notification(response.message);
-        }
+        });
     });
-});
 
-$('.js-categoria-btn-delete').on('click', function () {
-    //Nos os elementos do DOM
-    let element_tr_parent = $(this).parents('tr.js-categorias-tr');
+    $('.js-categoria-btn-delete').on('click', function () {
 
-    //Nós obtemos o Id do categoria pra deletar
-    let id_categoria = $(this).attr('data-id');
+        //Nos obtemos os elementos do DOM
+        let element_tr_parent = $(this).parents('tr.js-categorias-tr');
 
-    //Executamos a peticao  Ajax
-    $.ajax({
-        type: 'POST',
-        url: FULL_WEB_URL+'ajax/admin/categoria-crud.php',
-        data: {
-            categoria_id: id_categoria,
-            action: 'DELETE'
-        },
-        success: function (response) {
+        //Nós obtemos o Id do categoria pra deletar
+        let id_categoria = $(this).attr('data-id');
 
-            //Nos vamos analisar o formato json a resposta
-            let obj_json = $.parseJSON(response);
+        //Executamos a peticao  Ajax
+        $.ajax({
+            type: 'POST',
+            url: FULL_WEB_URL+'ajax/admin/categoria-crud.php',
+            data: {
+                categoria_id: id_categoria,
+                action: 'DELETE'
+            },
+            success: function (response) {
 
-            //Nos validamos o estado da petiçao
-            if (obj_json.status === '200'){
+                //Nos vamos analisar o formato json a resposta
+                let obj_json = $.parseJSON(response);
 
-                //Mensagem de sucesso
-                notify_success_notification(obj_json.message);
+                //Nos validamos o estado da petiçao
+                if (obj_json.status === '200'){
 
-                //Removemos com animacao a linha da tabela
-                element_tr_parent.hide('slow', function(){ element_tr_parent.remove(); });
+                    //Mensagem de sucesso
+                    notify_success_notification(obj_json.message);
+
+                    //Removemos com animacao a linha da tabela
+                    element_tr_parent.hide('slow', function(){ element_tr_parent.remove(); });
+                }
+                else
+                    notify_error_notification(obj_json.message);
             }
-            else
-                notify_error_notification(obj_json.message);
-        }
+        });
     });
-});
 
-// ** Codigo para permitir funcionalidade ao <file-input> do modelo **
+    // ** Codigo para permitir funcionalidade ao <file-input> do modelo **
 
-//Pra detectar o clique e acionar o 'input-file'
-$('.form-file-simple .inputFileVisible, .js-icon-open-input-file').click(function() {
-    $(this).siblings('.inputFileHidden').trigger('click');
-});
+    //Pra detectar o clique e acionar o 'input-file'
+    $('.form-file-simple .inputFileVisible, .js-icon-open-input-file').click(function() {
+        $(this).siblings('.inputFileHidden').trigger('click');
+    });
 
-//Para exibir o nombre do arquivo selecionado no 'input'
-$('.form-file-simple .inputFileHidden').change(function() {
-    var filename = $(this).val().replace(/C:\\fakepath\\/i, '');
-    $(this).siblings('.inputFileVisible').val(filename);
-});
+    //Para exibir o nombre do arquivo selecionado no 'input'
+    $('.form-file-simple .inputFileHidden').change(function() {
+        var filename = $(this).val().replace(/C:\\fakepath\\/i, '');
+        $(this).siblings('.inputFileVisible').val(filename);
+    });
