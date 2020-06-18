@@ -1,6 +1,7 @@
 
     //Definimos las variables globales
     var ID_CATEGORY = ''; //Variable creada para controlar la clase que controla la animación de los productos al seleccionar la categoría
+    throw 'Exit';
 
     //Detectamos evento 'click' sobre las diferentes categorías
     $('ul.js-ul-categories li').on('click', function () {

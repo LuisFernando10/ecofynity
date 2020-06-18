@@ -24,6 +24,20 @@
             <div class="filters-content">
                 <div class="row grid js-product-real-container">
                     {# Contenido cargado dinámicamente por JS #}
+                    {% for products in data_products %}
+                        <div class="single-portfolio col-sm-4 all {{ products.id_categoria }} js-product-category">
+                            <div class="relative">
+                                <div class="thumb">
+                                    <div class="overlay overlay-bg"></div>
+                                    <img class="image img-fluid js-img-product-image" src="{{ general.full_images_url }}galery/{{ products.imagen }}" alt="">
+                                </div>
+                            </div>
+                            <div class="p-inner">
+                                <h4 class="js-h4-product-name">{{ products.nombre }}</h4>
+                                <div class="cat">$ {{ products.precio }}</div>
+                            </div>
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
