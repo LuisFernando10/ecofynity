@@ -15,15 +15,14 @@
                     <li class="active" data-number="*" data-filter="*">All</li>
                     {# Recorremos las categorías y renderizamos un en un 'li' por cada una #}
                     {% for categories in data_categories %}
-                        {# Reemplazamos los espacios en blanco (' ') del 'data-filter', por un guión bajo ('_') #}
-                        <li data-filter=".{{ categories.nombre|replace({' ': '_'}) }}" data-number="{{ categories.id_categoria }}">{{ categories.nombre }}</li>
+                        <li data-filter=".{{ categories.id_categoria }}" data-number="{{ categories.id_categoria }}">{{ categories.nombre }}</li>
                     {% endfor %}
                 </ul>
             </div>
 
             {# Productos #}
             <div class="filters-content">
-                <div class="row grid">
+                <div class="row grid js-product-real-container">
                     {# Contenido cargado dinámicamente por JS #}
                 </div>
             </div>
@@ -36,15 +35,8 @@
             <div class="relative">
                 <div class="thumb">
                     <div class="overlay overlay-bg"></div>
-                    <img class="image img-fluid" src="{{ general.full_images_url }}p1.jpg" alt="">
+                    <img class="image img-fluid js-img-product-image" src="{# Contenido cargado dinámicamente por JS #}" alt="">
                 </div>
-                <a href="{{ general.full_images_url }}p1.jpg" class="img-pop-up">
-                    <div class="middle">
-                        <div class="text align-self-center d-flex">
-                            <img src="{{ general.full_images_url }}preview.png" alt="">
-                        </div>
-                    </div>
-                </a>
             </div>
             <div class="p-inner">
                 <h4 class="js-h4-product-name">{# Contenido cargado dinámicamente por JS #}</h4>

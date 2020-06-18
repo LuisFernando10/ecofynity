@@ -6,7 +6,11 @@
 
     //Obtenemos los datos enviados por el Ajax
     $action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_STRING);
-    $id_category = filter_input(INPUT_POST, 'id_category', FILTER_SANITIZE_NUMBER_INT, array("options" => array("default" => NULL)));
+    $id_category = filter_input(INPUT_POST, 'id_category', FILTER_SANITIZE_STRING, array("options" => array("default" => NULL)));
+
+    //Validamos existencia de los datos
+    if (empty($id_category) || $id_category == null)
+        $id_category = NULL;
 
     //Validamos el tipo de 'acción'
     if ($action == 'SEARCH_PRODUCTO') {
