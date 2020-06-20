@@ -26,8 +26,17 @@
                 'Ventas Ecofynity',
                 $text);
 
+            //Insertamos los datos en la BD
+            $insert_email = Emails::insertEmail(
+                $name,
+                $email,
+                $phone,
+                $text,
+                'ventas'
+            );
+
             //Validamos si se envió el correo
-            if ($send_email === '200'){
+            if ($send_email === '200' && $insert_email != NULL){
                 $response = [
                     'status' => '200',
                     'message' => 'Correo Electrónico enviado!!'

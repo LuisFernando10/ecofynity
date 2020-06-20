@@ -1,0 +1,68 @@
+
+    {% extends "base-document.twig" %}
+    {% block content %}
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header card-header-primary">
+                                <div class="row align-items-center">
+                                    <div class="col-8">
+                                        <h4 class="card-title ">Correos de Ventas</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-shopping table-hover">
+                                        <thead class="text-primary">
+                                            <tr>
+                                                <th>Nombre</th>
+                                                <th>Correo</th>
+                                                <th>Teléfono</th>
+                                                <th>Mensaje</th>
+                                                <th>Fecha</th>
+                                                <th>Estado</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            {# Percorremos os dados dos producto pra renderizar as linhas #}
+                                            {% for sales_mail in data_sales_mail %}
+
+                                                {% if sales_mail.estado == 'leido' %}
+                                                    {% set tag ='badge-success' %}
+                                                {% elseif sales_mail.estado == 'sin_leer' %}
+                                                    {% set tag ='badge-warning' %}
+                                                {% elseif sales_mail.estado == 'archivado' %}
+                                                    {% set tag ='badge-default' %}
+                                                {% else %}
+                                                    {% set tag ='badge-danger' %}
+                                                {% endif %}
+
+                                                <tr class="js-producto-tr">
+                                                    <td>{{ sales_mail.nombre }}</td>
+                                                    <td>{{ sales_mail.correo }}</td>
+                                                    <td>{{ sales_mail.telefono }}</td>
+                                                    <td>{{ sales_mail.mensaje }}</td>
+                                                    <td>{{ sales_mail.fecha }}</td>
+                                                    <td>
+                                                        <span class="badge {{ tag }}">{{ sales_mail.estado }}</span>
+                                                    </td>
+                                                </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+
+    {% block footer_scripts %}
+        <script type="text/javascript" src="{{ general.full_assets_url }}js/admin/products.js"></script>
+    {% endblock %}

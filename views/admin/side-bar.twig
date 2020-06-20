@@ -24,6 +24,7 @@
                         </a>
                     </li>
 
+                    {# Categorías #}
                     <li class="nav-item {{ (general.class_url == 'categoria') ? 'active' : '' }}">
                         <a class="nav-link" href="{{general.full_web_url}}categoria/">
                             <i class="material-icons">article</i>
@@ -31,7 +32,7 @@
                         </a>
                     </li>
 
-                    {# Rooms #}
+                    {# Productos #}
                     <li class="nav-item {{ (general.class_url == 'producto') ? 'active' : '' }}">
                         <a class="nav-link" href="{{general.full_web_url}}producto/">
                             <i class="material-icons">shopping_cart</i>
@@ -39,11 +40,42 @@
                         </a>
                     </li>
 
+                    {# Galería #}
                     <li class="nav-item {{ (general.class_url == 'galeria') ? 'active' : '' }}">
                         <a class="nav-link" href="{{general.full_web_url}}galeria/">
                             <i class="material-icons">image</i>
                             <p>Galería</p>
                         </a>
+                    </li>
+
+                    {# Correo #}
+                    <li class="nav-item {{ (general.class_url == 'correo') ? 'active' : '' }}">
+                        <a class="nav-link" data-toggle="collapse" href="#email" aria-expanded="false">
+                            <i class="material-icons">email</i>
+                            <p> Correo <b class="caret"></b></p>
+                        </a>
+                        <div class="collapse" id="email">
+
+                            {# Sub-Opciones #}
+                            <ul class="nav">
+
+                                {# Ventas #}
+                                <li class="nav-item {{ (general.action_url == 'ventas') ? 'active' : '' }}">
+                                    <a class="nav-link" href="{{general.full_web_url}}correo/ventas/">
+                                        <span class="sidebar-mini"> ven </span>
+                                        <span class="sidebar-normal"> Ventas </span>
+                                    </a>
+                                </li>
+
+                                {# Soporte #}
+                                <li class="nav-item {{ (general.action_url == 'soporte') ? 'active' : '' }}">
+                                    <a class="nav-link" href="{{general.full_web_url}}{{general.action_url}}contacto/">
+                                        <span class="sidebar-mini"> sop </span>
+                                        <span class="sidebar-normal"> Soporte </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
 
 

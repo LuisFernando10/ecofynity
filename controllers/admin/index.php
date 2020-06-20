@@ -47,7 +47,8 @@
         'full_images_url' => constant('IMAGES_WEB_URL'),
         'user_id' => $user_id,
         //'data_user' => $data_user[0],
-        'class_url' => $class
+        'class_url' => $class,
+        'action_url' => $action
     );
 
     //Evaluamos cada uno de los controladores para permitir el acceso a las respectivas vistas
@@ -63,44 +64,7 @@
             ));
             break;
 
-        #QUARTOS
-        case 'producto':
-
-            //Nos obtemos os dados que precisaremos renderizar nas vistas
-            $data_producto = Producto::getAll(NULL, NULL, NULL, NULL, NULL, NULL,NULL, NULL, NULL, NULL);
-            $data_categories = Category::getAll(NULL, NULL, NULL, NULL, NULL);
-            $data_producto_edit = Producto::getAll(NULL, NULL, NULL, $id, NULL, NULL,NULL, NULL, NULL, NULL);
-            //Nos validamos cada uma das clases
-            if ($action == 'create')
-                $twig->display('product-create.twig',array(
-                    'general' => $general_param,
-                    'data_categories' => $data_categories
-                ));
-            elseif ($action == 'edit'){
-
-                //Nos validamos se ha um $id
-                if (is_numeric($id) && $id != ''){
-                    $twig->display('product-edit.twig',array(
-                        'general' => $general_param,
-                        'data_producto_edit' => $data_producto_edit[0],
-                        'data_categories' => $data_categories
-                    ));
-                }
-                else
-                    $twig->display('product-list.twig',array(
-                        'general' => $general_param,
-                        'data_producto' => $data_producto,
-                        'data_categories' => $data_categories
-                    ));
-            }
-            else
-                $twig->display('product-list.twig',array(
-                    'general' => $general_param,
-                    'data_producto' => $data_producto
-                ));
-
-            break;
-
+        #CATEGORÍAS
         case 'categoria':
 
             //Nos obtemos os dados que precisaremos renderizar nas vistas
@@ -133,6 +97,47 @@
                 ));
 
             break;
+
+        #PRODUCTOS
+        case 'producto':
+
+            //Nos obtemos os dados que precisaremos renderizar nas vistas
+            $data_producto = Producto::getAll(NULL, NULL, NULL, NULL, NULL, NULL,NULL, NULL, NULL, NULL);
+            $data_categories = Category::getAll(NULL, NULL, NULL, NULL, NULL);
+            $data_producto_edit = Producto::getAll(NULL, NULL, NULL, $id, NULL, NULL,NULL, NULL, NULL, NULL);
+
+            //Nos validamos cada uma das clases
+            if ($action == 'create')
+                $twig->display('product-create.twig',array(
+                    'general' => $general_param,
+                    'data_categories' => $data_categories
+                ));
+            elseif ($action == 'edit'){
+
+                //Nos validamos se ha um $id
+                if (is_numeric($id) && $id != ''){
+                    $twig->display('product-edit.twig',array(
+                        'general' => $general_param,
+                        'data_producto_edit' => $data_producto_edit[0],
+                        'data_categories' => $data_categories
+                    ));
+                }
+                else
+                    $twig->display('product-list.twig',array(
+                        'general' => $general_param,
+                        'data_producto' => $data_producto,
+                        'data_categories' => $data_categories
+                    ));
+            }
+            else
+                $twig->display('product-list.twig',array(
+                    'general' => $general_param,
+                    'data_producto' => $data_producto
+                ));
+
+            break;
+
+        #GALERIA
         case 'galeria':
 
             //Nos obtemos os dados que precisaremos renderizar nas vistas
@@ -165,7 +170,27 @@
                 ));
 
             break;
-        #OFERECIMENTOS
+
+        #CORREO
+        case 'correo':
+
+            //Obtenemos los datos que se procesarán en las vistas
+            $data_sales_mail = Emails::getAll(NULL, NULL, NULL, NULL, NULL, NULL,NULL, NULL, NULL, NULL, NULL);
+
+            //Validamos las diferentes clases
+            if ($action == 'ventas')
+                $twig->display('sales-mail.twig',array(
+                    'general' => $general_param,
+                    'data_sales_mail' => $data_sales_mail
+                ));
+            else
+                $twig->display('dashboard.twig',array(
+                    'general' => $general_param
+                ));
+
+            break;
+
+        #OFERTAS
         case 'oferecimentos':
 
             //Obtemos os dados relacionados às ofertas
@@ -195,7 +220,6 @@
                 $data_types = NULL;
             }
 
-
             $twig->display('configurations.twig',array(
                 'general' => $general_param,
                 'data_configuration' => $data_configurations,
@@ -204,8 +228,9 @@
             ));
             break;
 
-        #SAIR
+        #SALIR
         case 'salir':
+
             //Importamos el controlador del LogIn
             Security::sessionClose();
 

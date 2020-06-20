@@ -38,6 +38,7 @@
             "full_assets_url" => constant('ASSETS_WEB_URL'),
             "full_images_url" => constant('IMAGES_WEB_URL'),
             "class_param" => $class,
+            "action_param" => $action
             //"data_configuration" => $data_configurations[0],
             //"data_phones" => $data_phones
         );
