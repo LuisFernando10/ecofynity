@@ -1,5 +1,45 @@
 
+    /**
+     * Este cdigo hace funcionar correctamente las paginaciones
+     */
+    $('document').ready(function() {
 
+        $(".jsPreviousPageButon").click(function(){
+            redirectToPage('previous');
+        });
+
+        $(".jsNextPageButon").click(function(){
+            redirectToPage('next');
+        });
+
+        $(".jsLastPageButon").click(function(){
+            //Se obtiene el numero de la ultima pagina
+            lastPageNumber = $(this).attr("data-pagination-lastpage");
+
+            redirectToPage('last', lastPageNumber);
+        });
+
+        $(".jsFirstPageButon").click(function(){
+            redirectToPage('first');
+        });
+
+        new ScrollFlow();
+
+        //Incicializador de 'Date Time Picker'
+        $('.datetimepicker').datetimepicker({
+            icons: {
+                time: "fa fa-clock-o",
+                date: "fa fa-calendar",
+                up: "fa fa-chevron-up",
+                down: "fa fa-chevron-down",
+                previous: 'fa fa-chevron-left',
+                next: 'fa fa-chevron-right',
+                today: 'fa fa-screenshot',
+                clear: 'fa fa-trash',
+                close: 'fa fa-remove'
+            }
+        });
+    });
     /**
      * @Description: Método para notificación de 'Exito'
      */
@@ -147,46 +187,6 @@
     function elementShow(Element) {
         $('.' + Element).css('display', 'block');
     }
-
-    /**
-     * Este cdigo hace funcionar correctamente las paginaciones
-     */
-    $('document').ready(function() {
-
-        $(".jsPreviousPageButon").click(function(){
-            redirectToPage('previous');
-        });
-
-        $(".jsNextPageButon").click(function(){
-            redirectToPage('next');
-        });
-
-        $(".jsLastPageButon").click(function(){
-            //Se obtiene el numero de la ultima pagina
-            lastPageNumber = $(this).attr("data-pagination-lastpage");
-
-            redirectToPage('last', lastPageNumber);
-        });
-
-        $(".jsFirstPageButon").click(function(){
-            redirectToPage('first');
-        });
-
-        //Incicializador de 'Date Time Picker'
-        $('.datetimepicker').datetimepicker({
-            icons: {
-                time: "fa fa-clock-o",
-                date: "fa fa-calendar",
-                up: "fa fa-chevron-up",
-                down: "fa fa-chevron-down",
-                previous: 'fa fa-chevron-left',
-                next: 'fa fa-chevron-right',
-                today: 'fa fa-screenshot',
-                clear: 'fa fa-trash',
-                close: 'fa fa-remove'
-            }
-        });
-    });
 
 
     function redirectToPage(pageType, lastPage = 1){
